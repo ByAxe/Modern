@@ -32,7 +32,7 @@
 		<div id="head_nav" role="navigation">
 			<ul>
 				<li class="head_menu_ank"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">Главная</a></li>
-				<li class="head_menu_ank"><a href="<?php echo esc_url( home_url( '/' ) ); ?>produktsiya/">Продукция</a></li>
+				<li class="head_menu_ank"><a href="<?php echo esc_url( home_url( '/' ) ); ?>product/">Продукция</a></li>
 				<li class="head_menu_ank"><a href ="<?php echo esc_url( home_url( '/' ) ); ?>kontakty/">Контакты</a></li>
 				<li class="head_menu_ank"><a href ="<?php echo esc_url( home_url( '/' ) ); ?>razmery/">Размеры</a></li>
 				<li class="head_menu_ank"><a href ="<?php echo esc_url( home_url( '/' ) ); ?>tseny/">Цены</a></li>
