@@ -31,19 +31,19 @@
 <div id="head-nav" role="navigation">
     <ul class="nav-menu">
         <li><a href="<?php echo esc_url(home_url('/')); ?>">Главная</a></li>
-        <li class="menu-list"><a href="<?php /*echo esc_url(home_url('/')); */ ?>product/">Продукция</a>
+        <li class="menu-list"><a href="<?php echo esc_url(home_url('/')); ?>product/">Продукция</a>
             <ul class="drop-menu">
-                <li><a href="#">Футболки</a></li>
-                <li><a href="#">Рубашки Поло</a></li>
-                <li><a href="#">Толстовки</a></li>
-                <li><a href="#">Бейсболки</a></li>
-                <li><a href="#">Коллекции</a></li>
-                <li><a href="#">С Принтом</a></li>
+                <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/futbolki/">Футболки</a></li>
+                <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/polo/">Рубашки Поло</a></li>
+                <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/tolstovki/">Толстовки</a></li>
+                <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/beysbolki/">Бейсболки</a></li>
+                <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/collection/">Коллекции</a></li>
+                <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/print/">С Принтом</a></li>
             </ul>
         </li>
-        <li><a href="<?php /*echo esc_url(home_url('/')); */ ?>kontakty/">Контакты</a></li>
-        <li><a href="<?php /*echo esc_url(home_url('/')); */ ?>razmery/">Размеры</a></li>
-        <li><a href="<?php /*echo esc_url(home_url('/')); */ ?>tseny/">Цены</a></li>
+        <li><a href="<?php echo esc_url(home_url('/'));  ?>kontakty/">Контакты</a></li>
+        <li><a href="<?php echo esc_url(home_url('/'));  ?>razmery/">Размеры</a></li>
+        <li><a href="<?php echo esc_url(home_url('/'));  ?>tseny/">Цены</a></li>
     </ul>
 
     <div id="head_search">
