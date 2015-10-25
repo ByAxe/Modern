@@ -527,7 +527,8 @@ $(document).ready(function () {
             )
         }
     };
-    basket.amountItem('#headbasklink > span');
+    /*basket.amountItem('#headbasklink > span')*/
+    ;
     $('#inputgo2').click(function () {
         var orderdata = [];
         if ($('#Ppui_selcol2 > div').is('.Ppui_markcol')) {
@@ -1049,14 +1050,5 @@ $(document).ready(function () {
     );
 
     /*##################################################################*/
-    /*##################################################################*/
-
-    $('.autoplay').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-    });
 
 });

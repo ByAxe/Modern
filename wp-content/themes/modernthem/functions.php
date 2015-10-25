@@ -24,6 +24,16 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
+add_filter('wp_nav_menu_items','sk_wcmenucart', 10, 2);
+function sk_wcmenucart($menu, $args)
+{
+    ob_start();
+    global $woocommerce;
+    $cart_contents_count = $woocommerce->cart->cart_contents_count;
+    echo $cart_contents_count;
+
+}
+
 /*
  * Хлебные крошки для WordPress (breadcrumbs)
  *

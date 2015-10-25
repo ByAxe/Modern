@@ -3,7 +3,6 @@
     width: 100%;
     background-color: white;
     font-family: HeliosExtThin, helvetica, sans-serif;
-    z-index: 1;
     margin: 0;
     padding: 0;
     overflow-x: auto;
@@ -18,6 +17,124 @@ a, p, h1, h2, h3, h4, h5, h6 {
 a {
     color: #333333;
     text-decoration: none;
+}
+
+/*----------------NAVIGATION-------------------------------*/
+/*-----------------------------------------------*/
+#head-nav {
+    width: 100%;
+    top: 0;
+    position: fixed;
+    height: 40px;
+    display: flex;
+    z-index: 2;
+    background-color: #7C86C6;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.nav-menu {
+    margin: 10px auto;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu li {
+    display: inline-block;
+}
+
+.nav-menu a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.nav-menu a:hover{
+    color: black;
+    width: 100%;
+}
+
+.menu-list{
+    position: relative;
+}
+
+.menu-list::after{
+    content: ' ';
+    position: absolute;
+    border: 5px solid;
+    border-color: #ffffff transparent transparent transparent;
+    top: 0.65em;
+    right: 0.1em;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.menu-list:hover::after{
+    -webkit-transform: scaleY(-1);
+    -moz-transform: scaleY(-1);
+    -ms-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+.drop-menu{
+    position: absolute;
+    background-color: #7C86C6;
+    border-radius: 2px;
+    top: -9999em;
+    padding: 0;
+    opacity: 0;
+    -webkit-transition: 0.5s opacity;
+    -moz-transition: 0.5s opacity;
+    -ms-transition: 0.5s opacity;
+    -o-transition: 0.5s opacity;
+    transition: 0.5s opacity;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.drop-menu li{
+    width: 200px;
+    margin: 8px 0 8px 0;
+    padding: 0 0 3px 0;
+    border-bottom: 1px dotted #DFDFDF;
+}
+.menu-list:hover .drop-menu{
+    opacity: 1;
+    top: 100%;
+}
+
+
+/*-----------------------------------------------*/
+/*-----------------------------------------------*/
+
+.logo {
+    margin: 0 0 0 5px;
+    padding: 15px 0 0 0;
+    display: inline-block;
+}
+
+.text-in-head {
+    font-family: Calibri, Helvetica, Verdana, sans-serif;
+    width: 245px;
+    margin: 25px 0 0 30px;
+    color: white;
+    display: inline-block;
+    padding: 0 0 0 10px;
+    border-left: 5px dotted rgba(255, 255, 255, 0.96);
+    font-size: 1.4em;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 a:hover {
@@ -43,8 +160,7 @@ a:hover {
 #head_search {
     width: 200px;
     float: right;
-    margin-right: 7%;
-    margin-top: -4px;
+    margin-top: 6px;
 }
 
 .kama_breadcrumbs {
@@ -94,12 +210,9 @@ a:hover {
 }
 
 #headbasklink {
-    display: block;
-    height: 39px;
+    display: inline-block;
     width: 120px;
-    padding: 5px 60px 5px 5px;
-    float: left;
-    margin-top: 60px;
+    padding: 5px 60px 5px 10px;
     background: url(images/basket.png) no-repeat top right;
     background-size: 65px;
     color: #ffffff;
@@ -156,80 +269,15 @@ a:hover {
 
 #header {
     width: 100%;
-    z-index: 4;
-    background: #EEE;
     position: relative;
-}
-
-#head_nav {
-    top: 0;
-    height: 33px;
-    position: fixed;
-    width: 100%;
-    z-index: 99;
-    border-bottom: 1px ridge rgba(0, 0, 0, 0.71);
-    background: rgb(52, 149, 223);
-    -moz-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
-}
-
-#head_nav a{
-    color: #fff !important;
-}
-
-#head_nav ul {
-    margin: 6px auto;
-    position: relative;
-    left: 9%;
-    padding: 0;
-    display: block;
-    color: white;
-    font-family: Calibri, Verdana, sans-serif;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-#head_nav ul li {
-    cursor: pointer;
-    float: left;
-    z-index: 101;
-    padding: 0 5px 0 30px;
-    display: block;
-}
-
-.nav_list {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
-    margin-left: -5px;
-    border-left: 1px solid rgba(148, 215, 243, 0.12);
-    border-right: 1px solid rgba(148, 215, 243, 0.12);
-    border-bottom: 1px solid rgba(148, 215, 243, 0.12);
-    z-index: 99;
-    display: none;
-    border-radius: 0 0 5px 5px;
-    background: #3d8bc6;
-    background: rgba(56, 142, 242, 0.8);
-}
-
-.nav_list a {
-    color: white;
-    display: block;
-    padding: 0;
-    margin: 5px 0 0 0;
-    font-size: 0.9em;
-    text-align: center;
+    background: #3495DF;
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 #head_block_info {
-    min-height: 125px;
-    min-width: 100%;
-    padding-top: 25px;
-    background: #3495DF;
-    -moz-box-shadow: 0 0 62px rgba(3, 3, 3, 0.6);;
-    -webkit-box-shadow: 0 0 62px rgba(3, 3, 3, 0.6);;
-    box-shadow: 0 0 62px rgba(3, 3, 3, 0.6);
+    margin: 40px 0 0 0;
 }
 
 .content_prod_1 {
@@ -665,12 +713,7 @@ a:hover {
 }
 
 #head_logo {
-    position: relative;
-    display: block;
     height: 90px;
-    margin: 9px 0 0 30px;
-    top: 15px;
-    float: left;
 }
 
 #hb_info_cont h1 {
@@ -688,9 +731,9 @@ a:hover {
 }
 
 #hb_info_telephone {
+    display: inline-block;
     width: 455px;
-    float: left;
-    margin: 30px 10px 11px 20px;
+    margin: 0 10px 0 20px;
 }
 
 #hb_info_telephone h2 {
@@ -935,7 +978,7 @@ a:hover {
 }
 
 #content {
-    font-family: Calibri,Helvetica,Verdana,sans-serif;
+    font-family: Calibri, Helvetica, Verdana, sans-serif;
     width: 100%;
     z-index: 3;
     position: relative;
@@ -2467,8 +2510,6 @@ a:hover {
 /*
     -------------------------------------------------------------------------
 */
-
-
 
 /*
     -------------------------------------------------------------------------
