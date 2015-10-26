@@ -2282,16 +2282,6 @@ a:hover {
 }
 
 /*************************************************************************************************************/
-.filterOptions {
-    display: inline-block;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #456A95;
-    margin: 2% 0 0 2%;
-    width: 20%;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
-    border-left: 10px solid rgb(3, 169, 244);
-}
 
 .filterOptionsList {
     margin: 10% 0;
@@ -2518,6 +2508,64 @@ a:hover {
 /*
     -------------------------------------------------------------------------
 */
+
+.ya-site-form__input-text {
+    height: 20px !important;
+}
+
+/*
+    ---------------------------------------------------------------------------
+*/
+.page-title, .page-description, .woocommerce-result-count, .woocommerce-ordering {
+    display: none !important;
+}
+
+.products {
+    display: inline-block;
+    width: 64%;
+    margin: 4% 0 0 5% !important;
+    float: right;
+}
+
+.product-categories {
+    display: block;
+    list-style: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #456A95;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    border-left: 10px solid rgb(3, 169, 244);
+}
+
+.product-categories > li {
+    padding: 2% 0 2% 0;
+    border-bottom: 3px solid rgb(89, 136, 221);
+}
+.product-categories > li:last-child{
+    border-bottom: none;
+}
+
+.children a {
+    color: #596191 !important;
+    font-size: inherit;
+}
+
+.children > .cat-parent li > a {
+    color: #9F7962 !important;
+    font-size: 1em;
+}
+
+.cat-parent > a {
+    color: #3495DF;
+    font-size: 1.2em;
+    font-family: HeliosExtThin, helvetica, sans-serif;
+    /*font-weight: bold;*/
+}
+
+#primary-sidebar {
+    display: inline-block;
+    width: 30%;
+}
 
 /*
     -------------------------------------------------------------------------

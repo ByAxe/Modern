@@ -33,7 +33,6 @@ function sk_wcmenucart($menu, $args)
     echo $cart_contents_count;
 
 }
-
 /*
  * Хлебные крошки для WordPress (breadcrumbs)
  *
@@ -175,5 +174,17 @@ function crumbs_tax($term_id, $tax, $sep, $patt)
     $termlinks = array_reverse($termlink);
     return implode('', $termlinks);
 }
+
+function my_widgets_init() {
+    register_sidebar( array(
+        'name' => 'Левый сайдбар',
+        'id' => 'left_sidebar',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="rounded">',
+        'after_title' => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'my_widgets_init' );
 
 ?>

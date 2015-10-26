@@ -141,7 +141,7 @@ $(document).ready(function () {
                 opacity: 0,
                 left: -900
             }, 300, function () {
-                queue: false,
+                false,
                     $("#h_slide > img").attr("src", headsloadimg);
                 $("#h_slide_content").html(headsloadhtml);
             });
@@ -189,7 +189,7 @@ $(document).ready(function () {
                 $('#hs_preloader').animate({
                     opacity: 0
                 }, function () {
-                    queue: false
+                    false;
                     $('#headsm_locked').css('z-index', 4);
                     deff_bcmark = bcmark();
                     deff_bcmark.done(function () {
@@ -261,12 +261,12 @@ $(document).ready(function () {
     $(hn_list).hover(
         function () {
             $(this).children("div").slideDown(400, function () {
-                queue: false
+                false
             });
         },
         function () {
             $(this).children("div").slideUp(120, function () {
-                queue: false
+                false
             });
         }
     );
@@ -528,7 +528,6 @@ $(document).ready(function () {
         }
     };
     /*basket.amountItem('#headbasklink > span')*/
-    ;
     $('#inputgo2').click(function () {
         var orderdata = [];
         if ($('#Ppui_selcol2 > div').is('.Ppui_markcol')) {
@@ -623,7 +622,8 @@ $(document).ready(function () {
                         $('#addbmessage').remove();
                     });
                 });
-            };
+            }
+
             function baskcont() {
                 if ($('#basketblock > ul').is('.bb_point')) {
                     return true;
@@ -631,7 +631,8 @@ $(document).ready(function () {
                     MessageErrorBask();
                     return false;
                 }
-            };
+            }
+
             if (baskcont()) {
                 $('body').append('<div id="addbmessage" style="display: none;">Идет отправка письма...</div>');
                 $('#addbmessage').css({
@@ -768,8 +769,6 @@ $(document).ready(function () {
         if (clickedImageInList != currentImageOnTop) {
             imageListTopSrc.setAttribute("src", clickedImageInList);
         }
-        ;
-
     });
     /*#################Галерея для Unit - Увеличение Изображения########*/
 
@@ -814,7 +813,7 @@ $(document).ready(function () {
     /*##################Получение данных из php файла###################*/
     var flagSend = false;
     var counterOfFading = 0;
-    var $type
+    var $type;
     var firstLoadPage = true;
 //**************************Все типы продукции***************************
     function getParameterByName(name) {
@@ -1050,5 +1049,14 @@ $(document).ready(function () {
     );
 
     /*##################################################################*/
+
+    var currentUrl = window.location.href;
+
+    if (currentUrl.search(/.tovar.?/) !== -1) { // Проверка на нахождение tovar в URL
+       currentUrl = currentUrl.split('tovar/');
+        if((currentUrl[1] !== '')){
+            document.getElementById("primary-sidebar").style.display='none';
+        }
+    }
 
 });
