@@ -1870,3 +1870,13 @@ div[itemprop="offers"]{
     font-size: 1.5em;
     /*display: none;*/
 }
+
+.price{
+    font-size: 1em !important;
+    font-weight: bold !important;
+    /*color: #596191 !important;*/
+}
+
+.related, .related .products{
+    width: 100% !important;
+}
