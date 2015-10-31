@@ -1880,3 +1880,11 @@ div[itemprop="offers"]{
 .related, .related .products{
     width: 100% !important;
 }
+
+/*.product-category{
+    display: none !important;
+}*/
+
+.woocommerce form{
+    font-family: Calibri, Helvetica, Verdana, sans-serif;
+}

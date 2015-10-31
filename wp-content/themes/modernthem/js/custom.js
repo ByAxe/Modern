@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
     var headlenslide = $(".hslide_load_slide").length,
         headscview = 0,
@@ -125,7 +125,7 @@ $(document).ready(function () {
             $("#snav_point_active").attr('id', '').addClass('snav_point_hide');
             $("#slider_nav").children('li[name = "' + headscslide + '"]').removeClass().attr('id', 'snav_point_active');
             $("#h_slide").children("img").load(function () {
-                $("#h_slide > img").animate({
+                jQuery("#h_slide > img").animate({
                         opacity: 1
                     },
                     {
