@@ -14,15 +14,15 @@
     <META http-equiv="Content-Language" content="ru">
     <META Name="copyright" Content="ModernImport">
 
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/woocommerce.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/woocommerce.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/normalize.min.css"/>
 
     <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon"/>
 
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/form-api.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/custom.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/custom.min.js"></script>
 
     <?php wp_head(); ?>
     <meta name='yandex-verification' content='47bb5c37194db20d'/>
@@ -42,9 +42,9 @@
                 <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/print/">С Принтом</a></li>
             </ul>
         </li>
-        <li><a href="<?php echo esc_url(home_url('/'));  ?>kontakty/">Контакты</a></li>
-        <li><a href="<?php echo esc_url(home_url('/'));  ?>razmery/">Размеры</a></li>
-        <li><a href="<?php echo esc_url(home_url('/'));  ?>tseny/">Цены</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>kontakty/">Контакты</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>razmery/">Размеры</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>tseny/">Цены</a></li>
     </ul>
 
     <div id="head_search">

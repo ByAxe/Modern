@@ -119,9 +119,9 @@ a {
 .wrapper-rubrics {
     display: block;
     margin: 2em 0 0 0;
-    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    -moz-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .rubrics {
@@ -230,23 +230,37 @@ a {
 }
 
 /*-----------------------------------------------*/
+/*------------UNIT of product-----------*/
+
+.priceTable td {
+    padding: 0 5px 0 0;
+}
+
+/*-----------------------------------------------*/
 /*-----------------------------------------------*/
 .logo {
-    margin: 0 0 0 5px;
-    padding: 15px 0 0 0;
     display: inline-block;
 }
 
 .text-in-head {
     font-family: Calibri, Helvetica, Verdana, sans-serif;
     width: 245px;
-    margin: 25px 0 0 30px;
-    color: white;
+    margin: 25px 0 0 26px;
+    color: #FFFFFF;
     display: inline-block;
     padding: 0 0 0 10px;
-    border-left: 5px dotted rgba(255, 255, 255, 0.96);
     font-size: 1.4em;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: 0.5s background;
+    -moz-transition: 0.5s background;
+    -ms-transition: 0.5s background;
+    -o-transition: 0.5s background;
+    transition: 0.5s background;
+}
+
+.text-in-head:hover {
+    background: #3B89C5;
 }
 
 a:hover {
@@ -584,7 +598,7 @@ a:hover {
 
 #Tpc_header {
     font-family: Calibri, Helvetica, Verdana, sans-serif;
-    font-size: 1.8em;
+    font-size: 1.7em;
     color: #646464;
     padding: 9px 15px 10px 50px;
     max-width: 750px;
@@ -1821,9 +1835,9 @@ a:hover {
     position: fixed;
     z-index: 99;
     bottom: 0;
-    -webkit-box-shadow: 0 -2px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    -moz-box-shadow: 0 -2px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    -webkit-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     background: #3495DF;
 
 }
@@ -2009,9 +2023,16 @@ a:hover {
 }
 
 .dataListElementLi {
-    border-radius: 0;
-    border: 1px solid rgba(52, 149, 223, 0.37);
+    border-radius: 1%;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background: #FDFEFF;
     margin: 5% 0 5% 0;
+}
+
+.dataListElementLi:hover .littleHint {
+    background: #7C86C6;
 }
 
 .bigHint {
@@ -2027,11 +2048,21 @@ a:hover {
 .littleHint {
     cursor: pointer;
     font-family: Calibri, Helvetica, Verdana, sans-serif;
-    border-top: 1px dotted rgba(52, 149, 223, 0.59);
+    border-top: 1px dotted rgba(32, 32, 32, 0.59);
     width: 75%;
     font-size: 1.1em;
-    color: #333;
+    color: #FFF;
+    border-radius: 0 4px 0 0;
+    background: #3495DF;
     padding: 0.8% 0 1% 5%;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: 2s background;
+    -moz-transition: 2s background;
+    -ms-transition: 2s background;
+    -o-transition: 2s background;
+    transition: 2s background;
 }
 
 .Ppu_setmarkcol2 {
@@ -2255,9 +2286,13 @@ a:hover {
 }
 
 .priceTable, .sizeTable {
-    padding: 0 0 2% 2%;
+    padding: 0 0 2% 0;
     font-size: 1.1em;
     font-family: Calibri, Helvetica, Verdana, sans-serif;
+}
+
+.priceTable {
+    padding-left: 2% !important;
 }
 
 .sizeTable table {
@@ -2266,8 +2301,9 @@ a:hover {
 }
 
 .sizeTable td {
-    border: 1px solid rgb(133, 191, 235);
-    border-radius: 3px;
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding: 0 0 0 5px;
 }
 
 .sizeTableFirstTD {
@@ -2277,244 +2313,20 @@ a:hover {
 #specialCircumstaces {
     font-size: 2em;
     text-align: center;
-    font-weight: bold;
-    border-bottom: 3px solid rgb(180, 216, 243);
-    color: rgb(180, 216, 243);
+    color: white;
     border-radius: 5px;
-    box-shadow: 0 0 5px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background: #7C86C6;
+    -webkit-transition: 1s background -moz-transition : 1 s background;
+    -ms-transition: 1s background;
+    -o-transition: 1s background;
+    transition: 1s background;
 }
 
-/*************************************************************************************************************/
-/*СТРАНИЦА ВЫБОРА ПРОДУКЦИИ*/
-/*************************************************************************************************************/
-
-.filterContainer {
-
+#specialCircumstaces:hover {
+    background: #3495DF;
 }
 
-/*************************************************************************************************************/
-
-.filterOptionsList {
-    margin: 10% 0;
-}
-
-.filterOptionsList:active {
-    color: rgb(0, 96, 168);
-}
-
-.typesName {
-    border-bottom: 3px solid rgb(89, 136, 221);
-    cursor: pointer;
-    padding: 0 0 2% 0;
-}
-
-.typesName:hover {
-    border-bottom: 3px solid rgb(3, 169, 244);
-}
-
-.optionsDiv {
-    color: rgb(93, 93, 93);
-    font-family: Calibri, Helvetica, Verdana, sans-serif;
-    font-weight: normal;
-    width: 90%;
-}
-
-.sexName {
-    border-bottom: 1px solid rgb(219, 219, 219);
-    padding: 2% 4%;
-    list-style: none;
-    cursor: pointer;
-    margin: 3% 0;
-}
-
-.sexName:hover {
-    border-bottom: 1px solid rgb(102, 141, 213);
-}
-
-.sexName:active {
-    background-color: rgb(233, 233, 233);
-    border-radius: 5px;
-    padding: 2% 4%;
-}
-
-.filterButton {
-    width: 60%;
-    padding: 2% 0 2% 0;
-    margin: 5% 0 0 8%;
-    font-size: 1em;
-    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
-    border-radius: 3px;
-    color: #51739C;
-    border: 1px solid rgb(240, 240, 240);
-    background: rgb(247, 247, 247);
-}
-
-.filterButton:hover {
-    cursor: pointer;
-    -webkit-box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.3), 0 0 5px rgba(0, 0, 0, 0.5);
-    border: none;
-    padding: 3% 0 1% 0;
-    margin: 5% 0 0.8% 8%;
-}
-
-/****************************************************************/
-.filterWindow {
-    float: right;
-    width: 73%;
-    margin-right: 2%;
-    height: 100%;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
-}
-
-#welcomToFilter {
-    margin: 5% 10% 0 10%;
-}
-
-#welcomToFilter p {
-    font-size: 2em;
-    font-weight: bold;
-    color: rgb(107, 131, 159);
-    margin: 0 0 3% 0;
-}
-
-#welcomToFilter img {
-    max-width: 100%;
-}
-
-.blockContainer {
-    border: 1px solid rgb(240, 240, 240);
-    background: rgb(247, 247, 247);
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
-    border-radius: 2px;
-    display: inline-flex;
-    padding: 10px 8px 12px 12px;
-    width: 16%;
-    margin: 15px 25px 13px 25px;
-}
-
-/*
-.blockContainer:hover{
-  border-top: 1px solid rgb(89, 136, 221)!important;
-  border-left: 1px solid rgb(3, 169, 244)!important;
-  border-bottom: 2px solid rgb(3, 169, 244)!important;
-  border-right: 2px solid rgb(89, 136, 221) !important;
-  margin: 14px 26px 13px 25px;
-}
-*/
-
-.blockContainer:hover a {
-    color: rgb(59, 59, 59);
-}
-
-.blockContainer a {
-    color: rgb(62, 95, 133);
-}
-
-.textInBlock {
-    font-family: Verdana, sans-serif;
-    font-size: 0.8em;
-    padding: 0 0 2% 0;
-    border-bottom: 1px dotted rgb(105, 105, 105);
-}
-
-.imageInBlock {
-    padding: 10% 0 0 0;
-    max-width: 100%;
-}
-
-.priceInBlock {
-    font-size: 1.2em;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    width: 100%;
-    border-top: 1px dotted gray;
-    background: rgb(52, 149, 223);
-    border-bottom: 1px solid gray;
-}
-
-#preloaderOfQuery {
-    position: absolute;
-    width: 73%;
-    height: 100%;
-    display: none;
-    z-index: 2015;
-}
-
-#preloaderOfQuery img {
-    margin: 10% 27%;
-}
-
-.regForm {
-    font-family: Calibri, Helvetica, Verdana, sans-serif;
-    color: #6E6E6E;
-    box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.15);
-    padding: 12px 0 10px 30px;
-    font-size: 1.25em;
-    border-radius: 4px;
-    margin: 0 auto;
-    width: 380px;
-}
-
-.input {
-    color: #6E6E6E;
-    border: 1px solid #D6D6D6;
-    border-radius: 3px;
-    width: 90%;
-    font-size: 1.1em;
-    margin: 3px 0 3px 0;
-}
-
-#submit {
-
-}
-
-#register {
-    font-size: 1em;
-    padding: 5px;
-    border: none;
-    color: #FFFFFF;
-    margin: 14px 0 14px 0;
-    border-radius: 4px;
-    width: 90%;
-    cursor: pointer;
-    background-color: #7D7D7D;
-}
-
-#register:hover {
-    background-color: #8D8D8D;
-}
-
-.regForm a {
-    color: #6E6E6E !important;
-}
-
-.regtext {
-    font-size: 1.05em;
-    cursor: pointer;
-}
-
-.slick-prev:before, .slick-next:before {
-    color: #3C7EB1 !important;
-}
-
-.cbim_column_list div {
-    background: url(images/check_3.png) no-repeat 4px 23px;
-    padding: 18px 0 5px 26px;
-    font-size: 1.25em;
-    font-weight: bold;
-    color: #2C2B27;
-    text-shadow: 0 0 1px rgba(105, 103, 97, 0.75);
-    height: 23px;
-    position: relative;
-    border-left: 8px solid #FFF5D7;
-    border-bottom: 8px solid #F1D57C;
-    display: block;
-}
 /*
     ---------Products' categories-----------------------------------
 */
@@ -2537,9 +2349,9 @@ a:hover {
 .product-categories {
     font-size: 1.2em;
     font-weight: bold;
-    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    -moz-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border-left: 10px solid rgb(3, 169, 244);
 }
 
