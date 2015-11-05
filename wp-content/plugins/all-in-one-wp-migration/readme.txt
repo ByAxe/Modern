@@ -3,7 +3,7 @@ Contributors: yani.iliev, bangelov, pimjitsawang
 Tags: db migration, migration, wordpress migration, db backup, db restore, website backup, website restore, website migration, website deploy, wordpress deploy, db backup, database export, database serialization, database find replace
 Requires at least: 3.3
 Tested up to: 4.3
-Stable tag: 4.7
+Stable tag: 4.9
 License: GPLv2 or later
 
 All-in-One WP Migration is the only tool that you will ever need to migrate a WordPress site.
@@ -32,11 +32,13 @@ All in One WP Plugin is the first plugin to offer true mobile experience on Word
 * We tested every WordPress version from `3.3` up to `4.3`.
 
 = Migrate WordPress to most popular cloud services using our completely new extensions =
+* [Unlimited](https://servmask.com/products/unlimited-extension)
 * [Dropbox](https://servmask.com/products/dropbox-extension)
+* [Multisite](https://servmask.com/products/multisite-extension)
+* [FTP](https://servmask.com/products/ftp-extension)
 * [Google Drive](https://servmask.com/products/google-drive-extension)
 * [Amazon S3](https://servmask.com/products/amazon-s3-extension)
-* [Multisite](https://servmask.com/products/multisite-extension)
-* [Unlimited](https://servmask.com/products/unlimited-extension)
+* [URL](https://servmask.com/products/url-extension)
 * And many more to come
 
 = Contact us =
@@ -45,6 +47,7 @@ All in One WP Plugin is the first plugin to offer true mobile experience on Word
 * [Find out more about us](https://servmask.com)
 
 [youtube http://www.youtube.com/watch?v=BpWxCeUWBOk]
+[youtube http://www.youtube.com/watch?v=mRp7qTFYKgs]
 
 == Installation ==
 1. Upload the `all-in-one-wp-migration` folder to the `/wp-content/plugins/` directory

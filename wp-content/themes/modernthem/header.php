@@ -14,8 +14,8 @@
     <META http-equiv="Content-Language" content="ru">
     <META Name="copyright" Content="ModernImport">
 
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.min.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/woocommerce.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/woocommerce.css"/>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/normalize.min.css"/>
 
     <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon"/>
@@ -49,7 +49,7 @@
 
     <div id="head_search">
         <div class="ya-site-form ya-site-form_inited_no"
-             onclick="return {'action':'http://modernimport.by/search','arrow':true,'bg':'#7C86C6','fontsize':12,'fg':'#333333','language':'ru','logo':'rb','publicname':'Поиск для modernimport.by','suggest':true,'target':'_self','tld':'ru','type':3,'usebigdictionary':true,'searchid':2145489,'webopt':false,'websearch':false,'input_fg':'#333333','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'Что будем искать?','input_placeholderColor':'#999999','input_borderColor':'#333333'}">
+             onclick="return {'action':'http://modernimport.by/search','arrow':true,'bg':'#3B89C5','fontsize':12,'fg':'#333333','language':'ru','logo':'rb','publicname':'Поиск для modernimport.by','suggest':true,'target':'_self','tld':'ru','type':3,'usebigdictionary':true,'searchid':2145489,'webopt':false,'websearch':false,'input_fg':'#333333','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'Что будем искать?','input_placeholderColor':'#999999','input_borderColor':'#333333'}">
             <form action="http://yandex.ru/sitesearch" method="get" target="_self"><input type="hidden" name="searchid"
                                                                                           value="2145489"/><input
                     type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value="utf-8"/><input
