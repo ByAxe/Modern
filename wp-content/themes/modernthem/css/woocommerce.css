@@ -1927,3 +1927,14 @@ div[itemprop="offers"] {
 .tabs {
     display: none !important;
 }
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 2.992em 2% !important;
+    padding: 0;
+    position: relative;
+    width: 22.05%;
+}
+ul.products{
+    margin: 4% 0 0 3% !important;
+}

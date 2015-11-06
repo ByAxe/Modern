@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/style.css"/>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/woocommerce.css"/>
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/normalize.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/font-awesome.css"/>
 
     <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon"/>
 
