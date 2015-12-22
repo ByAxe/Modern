@@ -21,14 +21,14 @@ a {
 
 /*----------------SHADOWS-------------------------------*/
 /*------------------LVL 1----------*/
-.rubrics div, .price-block-round:hover, .add-inf-block-head, .text-in-head, #specialCircumstaces:hover, .price-text:hover {
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+.rubrics div, .price-block-round:hover, .nav-menu li, .woocommerce div.product div.images img, .add-inf-block-head, .text-in-head, #specialCircumstaces:hover, .price-text:hover {
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
 }
 
 /*------------------LVL 2----------*/
-#head-nav, .dataListElementLi, .type-product-category-text, .price-block-text, .price-block-round, .price-block, .price-information, .drop-menu, .rubrics a:hover, .add-inf-block, #header, #specialCircumstaces, .price-text {
+#footer, #head-nav, .dataListElementLi, .delivery-headline, .type-product-category-text, .price-block-text, .price-block-round, .price-block, .price-information, .drop-menu, .rubrics a:hover, .add-inf-block, #header, #specialCircumstaces, .price-text {
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -61,24 +61,38 @@ a {
 
 .nav-menu li {
     display: inline-block;
-}
-
-.nav-menu a {
-    color: white;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 20px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #3495DF;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     transition: 0.5s all;
 }
 
+.nav-menu li:hover {
+    background: #3495DF;
+}
+
+.nav-menu a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: 0.7s all;
+    -moz-transition: 0.7s all;
+    -o-transition: 0.7s all;
+    transition: 0.7s all;
+}
+
 .nav-menu a:hover {
-    color: black;
+    color: white;
     width: 100%;
 }
 
@@ -91,12 +105,12 @@ a {
     position: absolute;
     border: 5px solid;
     border-color: #ffffff transparent transparent transparent;
-    top: 0.65em;
+    top: 0.6em;
     right: 0.1em;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    transition: 0.5s all;
 }
 
 .menu-list:hover::after {
@@ -112,7 +126,7 @@ a {
     background-color: #3B89C5;
     border-radius: 2px;
     top: -9999em;
-    padding: 0;
+    padding: 8px 0 0 0;
     opacity: 0;
     -webkit-transition: 0.5s opacity;
     -moz-transition: 0.5s opacity;
@@ -124,12 +138,26 @@ a {
     width: 200px;
     margin: 8px 0 8px 0;
     padding: 0 0 3px 0;
-    border-bottom: 1px dotted #DFDFDF;
+    display: block;
+    text-align: center;
+    -webkit-transition: 0.5s background;
+    -moz-transition: 0.5s background;
+    -ms-transition: 0.5s background;
+    -o-transition: 0.5s background;
+    transition: 0.5s background;
+}
+
+.drop-menu li:hover {
+    background: #3495DF;
 }
 
 .menu-list:hover .drop-menu {
     opacity: 1;
     top: 100%;
+}
+
+.important-option a {
+    color: #FFF704 !important;
 }
 
 /*-----------------------------------------------*/
@@ -175,7 +203,7 @@ a {
     position: absolute;
     bottom: 0;
     width: 93%;
-    background: #2684A1 url(images/play.png) no-repeat 246px;
+    background: #3B89C5;
     font-weight: 100;
     padding: 5px 0 10px 20px;
 }
@@ -183,7 +211,7 @@ a {
 .add-inf {
     width: 1200px;
     display: block;
-    margin: 30px auto 60px;
+    margin: 30px auto;
 }
 
 .add-inf-block {
@@ -230,8 +258,15 @@ a {
 
 /*-----------------------------------------------*/
 /*-----------------------------------------------*/
-.logo {
+
+.head-block {
     display: inline-block;
+    vertical-align: bottom;
+    margin: 0 0 12px 0;
+}
+
+.block3 {
+    margin-bottom: 23px;
 }
 
 .text-in-head {
@@ -243,15 +278,6 @@ a {
     padding: 0 0 0 10px;
     font-size: 1.4em;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
-    -webkit-transition: 0.5s background;
-    -moz-transition: 0.5s background;
-    -ms-transition: 0.5s background;
-    -o-transition: 0.5s background;
-    transition: 0.5s background;
-}
-
-.text-in-head:hover {
-    background: #3B89C5;
 }
 
 a:hover {
@@ -381,6 +407,9 @@ a:hover {
     border-bottom: 3px solid rgb(90, 138, 223);
 }
 
+/*
+    ------------HEADER WITH INFORMATION---------------------
+*/
 #hb_info_cont {
     width: 1200px;
     margin: 0 auto;
@@ -903,7 +932,7 @@ a:hover {
     transition: 1s all;
 }
 
-#specialCircumstaces:hover, .price-text:hover {
+.price-text:hover {
     background: #3495DF;
 }
 
@@ -968,7 +997,7 @@ a:hover {
 
 .price-information {
     display: block;
-    background: #3391AE;
+    background: #3B89C5;
     border-radius: 2px;
     color: white;
     text-align: center;
@@ -997,7 +1026,6 @@ a:hover {
     width: 28%;
     vertical-align: top;
     margin: 3% 0 0 2.4%;
-    background: #25689B;
     padding: 1%;
     border-radius: 4px;
 }
@@ -1006,8 +1034,10 @@ a:hover {
     color: #333 !important;
     display: block;
     text-align: center;
-    border-radius: 100%;
-    background: #3495DF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;;
+    background: #61BAFF;
     height: 295px;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
@@ -1018,6 +1048,9 @@ a:hover {
 
 .price-block-round:hover {
     color: black !important;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .price-block-round i {
@@ -1033,7 +1066,7 @@ a:hover {
     font-size: 1.6em;
     font-weight: 100;
     border-radius: 2px;
-    background: #3874B3;
+    background: #3495DF;
     color: #F7F7F7;
 }
 
@@ -1061,11 +1094,55 @@ a:hover {
     display: inline-block;
     width: 55%;
     padding: 2%;
-    background: #008FBB;
-    color: white;
+    color: #595959;
+    background: #F8F8F8;
     font-family: calibri, helvetica, Verdana, sans-serif !important;
     text-align: justify;
     font-size: 1.2em;
+}
+
+/*
+    --------------------------------------------------------------------------
+    -----------------------PAYMENT & DELIVERY----------------
+*/
+
+.block-delivery {
+    margin: 2%;
+    font-family: Calibri, Helvetica, Verdana, sans-serif;
+}
+
+.delivery-headline {
+    font-size: 2em;
+    background: #2A7DBD;
+    color: #FFFFFF;
+    padding: 0 0 0 10px;
+}
+
+.delivery-text {
+    padding: 1% 1% 1% 1.5%;
+    text-align: justify;
+    font-size: 1.1em;
+}
+
+.delivery-text ol {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.delivery-text li {
+    margin: 0 0 1% 0;
+}
+
+.offset-bottom {
+    margin-bottom: 2%;
+}
+
+.important-list-bold-text {
+    font-size: 1.3em;
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 
 /*
@@ -1075,14 +1152,8 @@ a:hover {
 
 #footer {
     width: 100%;
-    position: fixed;
-    z-index: 99;
-    bottom: 0;
-    -webkit-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    background: #3495DF;
-
+    position: absolute;
+    background: #3B89C5;
 }
 
 #footer_images {
@@ -1113,4 +1184,42 @@ a:hover {
     bottom: 0;
     margin-left: -594px;
     width: 1200px;
+}
+
+/*
+-----------------------------MEDIA QUERY--------------------------------------------
+*/
+
+/*-----------------------MEDIA < 1200PX---------------------------------------------*/
+
+@media (max-width: 1200px) {
+    #head_search {
+        display: none !important;
+    }
+}
+
+/*-----------------------MEDIA < 1000PX---------------------------------------------*/
+
+@media (max-width: 1000px) {
+    .nav-menu a {
+        font-size: 1em;
+        margin: 10px;
+    }
+}
+
+/*-----------------------MEDIA < 804px---------------------------------------------*/
+
+@media (max-width: 804px) {
+    .nav-menu a {
+        font-size: 0.9em;
+        margin: 3px;
+    }
+}
+
+/*-----------------------MEDIA < 650px---------------------------------------------*/
+
+@media (max-width: 650px) {
+    .nav-menu a {
+        /*TODO add here adaptive navigation*/
+    }
 }

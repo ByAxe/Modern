@@ -42,7 +42,7 @@ class Ai1wm_Export_Controller {
 
 			// Set arguments
 			if ( empty( $args ) ) {
-				$args = $_REQUEST;
+				$args = ai1wm_urldecode( $_REQUEST );
 			}
 
 			// Set storage path

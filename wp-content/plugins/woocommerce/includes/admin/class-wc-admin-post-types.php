@@ -284,7 +284,7 @@ class WC_Admin_Post_Types {
 
 		switch ( $column ) {
 			case 'thumb' :
-				echo '<a href="' . get_edit_post_link( $post->ID ) . '">' . $the_product->get_image( 'thumbnail' ) . '</a>';
+				echo '<a href="' . get_edit_post_link( $post->ID ) . '">' . $the_product->get_image( 'post-thumbnail' ) . '</a>';
 				break;
 			case 'name' :
 				$edit_link = get_edit_post_link( $post->ID );
@@ -1036,7 +1036,7 @@ class WC_Admin_Post_Types {
 		// Save fields
 		if ( isset( $_REQUEST['_sku'] ) ) {
 			$sku     = get_post_meta( $post_id, '_sku', true );
-			$new_sku = wc_clean( stripslashes( $_REQUEST['_sku'] ) );
+			$new_sku = wc_clean( $_REQUEST['_sku'] );
 
 			if ( $new_sku !== $sku ) {
 				if ( ! empty( $new_sku ) ) {
@@ -1331,13 +1331,11 @@ class WC_Admin_Post_Types {
 						break;
 				}
 
-				if ( ! empty( $new_price ) && $new_price != $old_sale_price ) {
+				if ( isset( $new_price ) && $new_price != $old_sale_price ) {
 					$price_changed = true;
-					$new_price = round( $new_price, wc_get_price_decimals() );
+					$new_price = ! empty( $new_price ) || '0' === $new_price ? round( $new_price, wc_get_price_decimals() ) : '';
 					update_post_meta( $post_id, '_sale_price', $new_price );
 					$product->sale_price = $new_price;
-				} else {
-					update_post_meta( $post_id, '_sale_price', '' );
 				}
 			}
 

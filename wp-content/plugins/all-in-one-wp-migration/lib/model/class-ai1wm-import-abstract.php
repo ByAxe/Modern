@@ -31,6 +31,11 @@ abstract class Ai1wm_Import_Abstract {
 
 	public function __construct( array $args = array() ) {
 		$this->args = $args;
+
+		// HTTP resolve
+		if ( $this->args['method'] === 'import' ) {
+			Ai1wm_Http::resolve( admin_url( 'admin-ajax.php?action=ai1wm_resolve' ) );
+		}
 	}
 
 	/**
@@ -381,65 +386,12 @@ abstract class Ai1wm_Import_Abstract {
 		$this->args['method']     = $method;
 		$this->args['secret_key'] = get_site_option( AI1WM_SECRET_KEY, false, false );
 
-		// Check the status of the import, maybe we need to stop it
+		// Check the status of the export, maybe we need to stop it
 		if ( ! is_file( $this->storage()->archive() ) ) {
 			exit;
 		}
 
-		$headers = array();
-
-		// HTTP authentication
-		$auth_user     = get_site_option( AI1WM_AUTH_USER, false, false );
-		$auth_password = get_site_option( AI1WM_AUTH_PASSWORD, false, false );
-		if ( ! empty( $auth_user ) && ! empty( $auth_password ) ) {
-			$headers['Authorization'] = 'Basic ' . base64_encode( $auth_user . ':' . $auth_password );
-		}
-
-		// Resolve domain
-		$url      = admin_url( 'admin-ajax.php?action=ai1wm_import&' . http_build_query( $this->args ) );
-		$hostname = parse_url( $url, PHP_URL_HOST );
-		$port     = parse_url( $url, PHP_URL_PORT );
-		$ip       = gethostbyname( $hostname );
-
-		// Could not resolve host
-		if ( $hostname === $ip ) {
-
-			// Get server IP address
-			if ( ! empty( $_SERVER['SERVER_ADDR'] ) ) {
-				$ip = $_SERVER['SERVER_ADDR'];
-			} else if ( ! empty( $_SERVER['LOCAL_ADDR'] ) ) {
-				$ip = $_SERVER['LOCAL_ADDR'];
-			} else {
-				$ip = $_SERVER['SERVER_NAME'];
-			}
-
-			// Add IPv6 support
-			if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) {
-				$ip = "[$ip]";
-			}
-		}
-
-		// Replace URL
-		$url = preg_replace( sprintf( '/%s/', preg_quote( $hostname, '-' ) ), $ip, $url, 1 );
-
-		// Set host header
-		if ( ! empty( $port ) ) {
-			$headers['Host'] = sprintf( '%s:%s', $hostname, $port );
-		} else {
-			$headers['Host'] = sprintf( '%s', $hostname );
-		}
-
 		// HTTP request
-		remove_all_filters( 'http_request_args' );
-		wp_remote_get(
-			$url,
-			array(
-				'timeout'    => apply_filters( 'ai1wm_http_timeout', 5 ),
-				'blocking'   => false,
-				'sslverify'  => apply_filters( 'https_local_ssl_verify', false ),
-				'user-agent' => 'ai1wm',
-				'headers'    => $headers,
-			)
-		);
+		Ai1wm_Http::get( admin_url( 'admin-ajax.php?action=ai1wm_import' ), $this->args );
 	}
 }

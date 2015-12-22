@@ -256,6 +256,8 @@ class Ai1wm_Main_Controller {
 		// Public
 		add_action( 'wp_ajax_nopriv_ai1wm_export', 'Ai1wm_Export_Controller::export' );
 		add_action( 'wp_ajax_nopriv_ai1wm_import', 'Ai1wm_Import_Controller::import' );
+		add_action( 'wp_ajax_nopriv_ai1wm_resolve', 'Ai1wm_Resolve_Controller::resolve' );
+
 
 		// Private
 		if ( ! current_user_can( 'export' ) || ! current_user_can( 'import' ) ) {
@@ -270,6 +272,8 @@ class Ai1wm_Main_Controller {
 		add_action( 'wp_ajax_ai1wm_close_message', 'Ai1wm_Message_Controller::close_message' );
 		add_action( 'wp_ajax_ai1wm_backup_delete', 'Ai1wm_Backup_Controller::delete' );
 		add_action( 'wp_ajax_ai1wm_disable_maintenance', 'Ai1wm_Maintenance::disable' );
+		add_action( 'wp_ajax_ai1wm_resolve', 'Ai1wm_Resolve_Controller::resolve' );
+
 	}
 
 	/**
@@ -548,30 +552,30 @@ class Ai1wm_Main_Controller {
 		);
 		wp_localize_script( 'ai1wm-js-export', 'ai1wm_feedback', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_leave_feedback' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_leave_feedback' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-export', 'ai1wm_report', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_report_problem' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_report_problem' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-export', 'ai1wm_message', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_close_message' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_close_message' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-export', 'ai1wm_maintenance', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_disable_maintenance' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_disable_maintenance' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-export', 'ai1wm_export', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_export' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_export' ) ),
 			),
 			'status' => array(
-				'url' => AI1WM_STORAGE_URL,
+				'url' => wp_make_link_relative( AI1WM_STORAGE_URL ),
 			),
 			'secret_key' => get_site_option( AI1WM_SECRET_KEY, false, false ),
 		) );
@@ -595,22 +599,22 @@ class Ai1wm_Main_Controller {
 		);
 		wp_localize_script( 'ai1wm-js-backup', 'ai1wm_feedback', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_leave_feedback' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_leave_feedback' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-backup', 'ai1wm_report', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_report_problem' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_report_problem' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-backup', 'ai1wm_maintenance', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_disable_maintenance' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_disable_maintenance' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-backup', 'ai1wm_backup', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_backup_delete' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_backup_delete' ) ),
 			),
 		) );
 	}
@@ -643,7 +647,7 @@ class Ai1wm_Main_Controller {
 			'file_data_name'      => 'upload-file',
 			'chunk_size'          => apply_filters( 'ai1wm_max_chunk_size', AI1WM_MAX_CHUNK_SIZE ),
 			'max_retries'         => apply_filters( 'ai1wm_max_chunk_retries', AI1WM_MAX_CHUNK_RETRIES ),
-			'url'                 => admin_url( 'admin-ajax.php?action=ai1wm_import' ),
+			'url'                 => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_import' ) ),
 			'flash_swf_url'       => includes_url( 'js/plupload/plupload.flash.swf' ),
 			'silverlight_xap_url' => includes_url( 'js/plupload/plupload.silverlight.xap' ),
 			'multiple_queues'     => false,
@@ -663,25 +667,25 @@ class Ai1wm_Main_Controller {
 		) );
 		wp_localize_script( 'ai1wm-js-import', 'ai1wm_feedback', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_leave_feedback' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_leave_feedback' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-import', 'ai1wm_report', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_report_problem' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_report_problem' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-import', 'ai1wm_maintenance', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_disable_maintenance' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_disable_maintenance' ) ),
 			),
 		) );
 		wp_localize_script( 'ai1wm-js-import', 'ai1wm_import', array(
 			'ajax' => array(
-				'url' => admin_url( 'admin-ajax.php?action=ai1wm_import' ),
+				'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_import' ) ),
 			),
 			'status' => array(
-				'url' => AI1WM_STORAGE_URL,
+				'url' => wp_make_link_relative( AI1WM_STORAGE_URL ),
 			),
 			'secret_key' => get_site_option( AI1WM_SECRET_KEY, false, false ),
 			'oversize'   => sprintf(

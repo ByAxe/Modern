@@ -1,69 +1,50 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
 /**
- * Factory class main file
+ * Copyright (C) 2014 ServMask Inc.
  *
- * PHP version 5
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * LICENSE: Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the "Software"), to
- * deal in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
- * of the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- * @category  Databases
- * @package   MysqlDumpFactory
- * @author    Yani Iliev <yani@iliev.me>
- * @author    Bobby Angelov <bobby@servmask.com>
- * @copyright 2014 Yani Iliev, Bobby Angelov
- * @license   https://raw.github.com/yani-/mysqldump-factory/master/LICENSE The MIT License (MIT)
- * @version   GIT: 2.2.0
- * @link      https://github.com/yani-/mysqldump-factory/
+ * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
+ * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
+ * ███████╗█████╗  ██████╔╝██║   ██║██╔████╔██║███████║███████╗█████╔╝
+ * ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██║╚██╔╝██║██╔══██║╚════██║██╔═██╗
+ * ███████║███████╗██║  ██║ ╚████╔╝ ██║ ╚═╝ ██║██║  ██║███████║██║  ██╗
+ * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
-/**
- * Factory Main class
- *
- * @category  Databases
- * @package   MysqlDumpFactory
- * @author    Yani Iliev <yani@iliev.me>
- * @author    Bobby Angelov <bobby@servmask.com>
- * @copyright 2014 Yani Iliev, Bobby Angelov
- * @license   https://raw.github.com/yani-/mysqldump-factory/master/LICENSE The MIT License (MIT)
- * @version   GIT: 2.2.0
- * @link      https://github.com/yani-/mysqldump-factory/
- */
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'MysqlDumpPDO.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'MysqlDumpSQL.php';
+
 class MysqlDumpFactory
 {
-	public static function makeMysqlDump($hostname = 'localhost', $username = '', $password = '', $database = '', $pdo = false)
+	public static function makeMysqlDump($hostname = 'localhost', $username = '', $password = '', $database = '')
 	{
-		// is PDO class available?
-		if ($pdo) {
-			require_once
-				dirname(__FILE__) .
-				DIRECTORY_SEPARATOR .
-				'MysqlDumpPDO.php';
+		try {
+			// Is PDO available?
+			if (class_exists('PDO') && in_array('mysql', PDO::getAvailableDrivers())) {
+				$client = new MysqlDumpPDO($hostname, $username, $password, $database);
+			} else {
+				$client = new MysqlDumpSQL($hostname, $username, $password, $database);
+			}
 
-			return new MysqlDumpPDO($hostname, $username, $password, $database);
-		} else {
-			require_once
-				dirname(__FILE__) .
-				DIRECTORY_SEPARATOR .
-				'MysqlDumpSQL.php';
-
-			return new MysqlDumpSQL($hostname, $username, $password, $database);
+			// Test connection
+			$client->getConnection();
+		} catch (Exception $e) {
+			$client = new MysqlDumpSQL($hostname, $username, $password, $database);
 		}
+
+		return $client;
 	}
 }

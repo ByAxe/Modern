@@ -1,5 +1,5 @@
 # Modern
-Modern Import companies website.
+Modern Import company's website.
 
 You can buy here any clothes you want.
 

@@ -35,6 +35,8 @@
         <li><a href="<?php echo esc_url(home_url('/')); ?>">Главная</a></li>
         <li class="menu-list"><a href="<?php echo esc_url(home_url('/')); ?>product/">Продукция</a>
             <ul class="drop-menu">
+                <li class="important-option"><a
+                        href="<?php echo esc_url(home_url('/')); ?>product-category/vyshivanki/">Вышиванки</a></li>
                 <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/futbolki/">Футболки</a></li>
                 <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/polo/">Рубашки Поло</a></li>
                 <li><a href="<?php echo esc_url(home_url('/')); ?>product-category/tolstovki/">Толстовки</a></li>
@@ -46,6 +48,8 @@
         <li><a href="<?php echo esc_url(home_url('/')); ?>kontakty/">Контакты</a></li>
         <li><a href="<?php echo esc_url(home_url('/')); ?>razmery/">Размеры</a></li>
         <li><a href="<?php echo esc_url(home_url('/')); ?>tseny/">Цены</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>payment-and-delivery/">Оплата и Доставка</a></li>
+        <li><a href="<?php echo esc_url(home_url('/')); ?>return/">Возврат</a></li>
     </ul>
 
     <div id="head_search">
@@ -79,34 +83,42 @@
     <div id="header">
         <div id="head_block_info">
             <div id="hb_info_cont">
-                <a class="logo" href="<?php echo esc_url(home_url('/')); ?>"
-                   title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
-                    <img id="head_logo" alt="Логотип предприятия по продаже футболок, маек, рубашек" ;
-                         title="Оптовая продажа различного трикотажа: майки, толстовки, рубашки-поло, кепки"
-                         src="<?php bloginfo('template_url'); ?>/images/logoNew.png"/>
-                </a>
-
-                <div id="hb_info_telephone">
-                    <BIG><b><font color="#ffffff"><?php bloginfo('name'); ?></font></b></BIG>
-                    <img alt="phone" src="<?php bloginfo('template_url'); ?>/images/telephone.png"/>
-
-                    <p>+375 29 704-95-82</p>
-
-                    <p>+375 29 697-78-61</p>
-
-                    <p>+375 17 207-30-38</p>
-
-                    <p>+375 17 207-30-74</p>
+                <div class="head-block block1">
+                    <a class="logo" href="<?php echo esc_url(home_url('/')); ?>"
+                       title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
+                        <img id="head_logo" alt="Логотип предприятия по продаже футболок, маек, рубашек" ;
+                             title="Оптовая продажа различного трикотажа: майки, толстовки, рубашки-поло, кепки"
+                             src="<?php bloginfo('template_url'); ?>/images/logoNew.png"/>
+                    </a>
                 </div>
-                <a id="headbasklink" href="<?php echo esc_url(home_url('/')); ?>korzina/" title="Перейти в корзину">В
-                    корзине товара: <span>
+                <div class="head-block block2">
+
+                    <div id="hb_info_telephone">
+                        <BIG><b><font color="#ffffff"><?php bloginfo('name'); ?></font></b></BIG>
+                        <img alt="phone" src="<?php bloginfo('template_url'); ?>/images/telephone.png"/>
+
+                        <p>+375 29 704-95-82</p>
+
+                        <p>+375 29 697-78-61</p>
+
+                        <p>+375 17 207-30-38</p>
+
+                        <p>+375 17 207-30-74</p>
+                    </div>
+                </div>
+                <div class="head-block block3">
+                    <a id="headbasklink" href="<?php echo esc_url(home_url('/')); ?>korzina/" title="Перейти в корзину">В
+                        корзине товара: <span>
                         <?php
                         global $woocommerce;
                         $cart_contents_count = $woocommerce->cart->cart_contents_count;
                         echo $cart_contents_count . ' ';
                         ?></span>шт.</a>
+                </div>
+                <div class="head-block block4">
 
-                <div class="text-in-head">Официальный дилер на территории Республики Беларусь
+                    <div class="text-in-head">Официальный дилер на территории Республики Беларусь
+                    </div>
                 </div>
             </div>
         </div>

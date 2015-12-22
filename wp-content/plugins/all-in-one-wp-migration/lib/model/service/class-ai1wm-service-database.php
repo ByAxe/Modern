@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) 2014 ServMask Inc.
  *
@@ -23,42 +24,14 @@
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
-class Ai1wm_Service_Database implements Ai1wm_Service_Interface
-{
-	protected $args       = array();
+class Ai1wm_Service_Database implements Ai1wm_Service_Interface {
 
-	protected $storage    = null;
+	protected $args    = array();
 
-	protected $connection = null;
+	protected $storage = null;
 
 	public function __construct( array $args = array() ) {
 		$this->args = $args;
-
-		// Make connection
-		try {
-			// Use PDO adapter
-			$this->connection = MysqlDumpFactory::makeMysqlDump(
-				DB_HOST,
-				DB_USER,
-				DB_PASSWORD,
-				DB_NAME,
-				(
-					class_exists(
-						'PDO'
-					) && in_array( 'mysql', PDO::getAvailableDrivers() )
-				)
-			);
-			$this->connection->getConnection();
-		} catch ( Exception $e ) {
-			// Use mysql adapter
-			$this->connection = MysqlDumpFactory::makeMysqlDump(
-				DB_HOST,
-				DB_USER,
-				DB_PASSWORD,
-				DB_NAME,
-				false
-			);
-		}
 	}
 
 	/**
@@ -78,20 +51,78 @@ class Ai1wm_Service_Database implements Ai1wm_Service_Interface
 
 		// Get Site URL
 		if ( isset( $config['SiteURL'] ) && ( $config['SiteURL'] !== site_url() ) ) {
-			$old_values[] = $config['SiteURL'];
-			$new_values[] = site_url();
+
+			// Get domain
+			$old_domain = parse_url( $config['SiteURL'], PHP_URL_HOST );
+			$new_domain = parse_url( site_url(), PHP_URL_HOST );
+
+			// Add plain Site URL
+			$old_values[] = set_url_scheme( $config['SiteURL'], 'http' );
+			$new_values[] = set_url_scheme( site_url() );
+
+			// Add plain Site URL SSL
+			$old_values[] = set_url_scheme( $config['SiteURL'], 'https' );
+			$new_values[] = set_url_scheme( site_url() );
+
+			// Add encoded Site URL
+			$old_values[] = urlencode( set_url_scheme( $config['SiteURL'], 'http' ) );
+			$new_values[] = urlencode( set_url_scheme( site_url() ) );
+
+			// Add encoded Site URL SSL
+			$old_values[] = urlencode( set_url_scheme( $config['SiteURL'], 'https' ) );
+			$new_values[] = urlencode( set_url_scheme( site_url() ) );
+
+			// Add escaped Site URL
+			$old_values[] = addslashes( addcslashes( set_url_scheme( $config['SiteURL'], 'http' ), '/' ) );
+			$new_values[] = addslashes( addcslashes( set_url_scheme( site_url() ), '/' ) );
+
+			// Add escaped Site URL SSL
+			$old_values[] = addslashes( addcslashes( set_url_scheme( $config['SiteURL'], 'https' ), '/' ) );
+			$new_values[] = addslashes( addcslashes( set_url_scheme( site_url() ), '/' ) );
+
+			// Add email
+			$old_values[] = sprintf( "@%s", $old_domain );
+			$new_values[] = sprintf( "@%s", $new_domain );
 		}
 
 		// Get Home URL
 		if ( isset( $config['HomeURL'] ) && ( $config['HomeURL'] !== home_url() ) ) {
-			$old_values[] = $config['HomeURL'];
-			$new_values[] = home_url();
+
+			// Add plain Home URL
+			$old_values[] = set_url_scheme( $config['HomeURL'], 'http' );
+			$new_values[] = set_url_scheme( home_url() );
+
+			// Add plain Home URL SSL
+			$old_values[] = set_url_scheme( $config['HomeURL'], 'https' );
+			$new_values[] = set_url_scheme( home_url() );
+
+			// Add encoded Home URL
+			$old_values[] = urlencode( set_url_scheme( $config['HomeURL'], 'http' ) );
+			$new_values[] = urlencode( set_url_scheme( home_url() ) );
+
+			// Add encoded Home URL SSL
+			$old_values[] = urlencode( set_url_scheme( $config['HomeURL'], 'https' ) );
+			$new_values[] = urlencode( set_url_scheme( home_url() ) );
+
+			// Add escaped Home URL
+			$old_values[] = addslashes( addcslashes( set_url_scheme( $config['HomeURL'], 'http' ), '/' ) );
+			$new_values[] = addslashes( addcslashes( set_url_scheme( home_url() ), '/' ) );
+
+			// Add escaped Home URL SSL
+			$old_values[] = addslashes( addcslashes( set_url_scheme( $config['HomeURL'], 'https' ), '/' ) );
+			$new_values[] = addslashes( addcslashes( set_url_scheme( home_url() ), '/' ) );
 		}
 
 		// Get WordPress Content
 		if ( isset( $config['WordPress']['Content'] ) && ( $config['WordPress']['Content'] !== WP_CONTENT_DIR ) ) {
+
+			// Add plain WordPress Content
 			$old_values[] = $config['WordPress']['Content'];
 			$new_values[] = WP_CONTENT_DIR;
+
+			// Get escaped WordPress Content
+			$old_values[] = addslashes( addcslashes( $config['WordPress']['Content'], '\/' ) );
+			$new_values[] = addslashes( addcslashes( WP_CONTENT_DIR, '\/' ) );
 		}
 
 		// Get user details
@@ -128,15 +159,31 @@ class Ai1wm_Service_Database implements Ai1wm_Service_Interface
 		// Get secret key
 		$secret_key = get_site_option( AI1WM_SECRET_KEY, false, false );
 
+		// Get URL IP
+		$url_ip = get_site_option( AI1WM_URL_IP, false, false );
+
+		// Get URL transport
+		$url_transport = get_site_option( AI1WM_URL_TRANSPORT, false, false );
+
+		// Get database client
+		$client = MysqlDumpFactory::makeMysqlDump( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+
+		// Set database options
+		$client->setOldTablePrefixes( array( AI1WM_TABLE_PREFIX ) )
+			   ->setNewTablePrefixes( array( $wpdb->prefix ) )
+			   ->setOldReplaceValues( $old_values )
+			   ->setNewReplaceValues( $new_values );
+
 		// Flush database
-		$this->connection->flush();
+		if ( ( $version = $config['Plugin']['Version'] ) ) {
+			if ( $version !== 'develop' && version_compare( $version, '4.9', '<' ) ) {
+				$client->setIncludeTablePrefixes( array( $wpdb->prefix ) );
+				$client->flush();
+			}
+		}
 
 		// Import database
-		$this->connection->setOldTablePrefix( AI1WM_TABLE_PREFIX )
-						 ->setNewTablePrefix( $wpdb->prefix )
-						 ->setOldReplaceValues( $old_values )
-						 ->setNewReplaceValues( $new_values )
-						 ->import( $this->storage()->database() );
+		$client->import( $this->storage()->database() );
 
 		// Clear WP options cache
 		wp_cache_flush();
@@ -176,6 +223,11 @@ class Ai1wm_Service_Database implements Ai1wm_Service_Interface
 			activate_plugin( AI1WMFE_PLUGIN_BASENAME );
 		}
 
+		// URL Extension
+		if ( is_plugin_active( AI1WMLE_PLUGIN_BASENAME ) ) {
+			activate_plugin( AI1WMLE_PLUGIN_BASENAME );
+		}
+
 		// Set new user identity
 		if ( isset( $config['Export']['User']['Id'] ) && ( $id = $config['Export']['User']['Id'] ) ) {
 
@@ -213,6 +265,12 @@ class Ai1wm_Service_Database implements Ai1wm_Service_Interface
 
 		// Set the new secret key value
 		update_site_option( AI1WM_SECRET_KEY, $secret_key );
+
+		// Set the new URL IP
+		update_site_option( AI1WM_URL_IP, $url_ip );
+
+		// Set the new URL transport
+		update_site_option( AI1WM_URL_TRANSPORT, $url_transport );
 	}
 
 	/**
@@ -251,18 +309,21 @@ class Ai1wm_Service_Database implements Ai1wm_Service_Interface
 			}
 		}
 
-		// Set dump options
-		$this->connection->setFileName( $this->storage()->database() )
-						 ->setOldTablePrefix( $wpdb->prefix )
-						 ->setNewTablePrefix( AI1WM_TABLE_PREFIX )
-						 ->setOldReplaceValues( $old_values )
-						 ->setNewReplaceValues( $new_values )
-						 ->setQueryClauses( $clauses )
-						 ->setTablePrefixColumns( $wpdb->options, array( 'option_name' ) )
-						 ->setTablePrefixColumns( $wpdb->usermeta, array( 'meta_key' ) );
+		// Get database client
+		$client = MysqlDumpFactory::makeMysqlDump( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+
+		// Set database options
+		$client->setOldTablePrefixes( array( $wpdb->prefix ) )
+			   ->setNewTablePrefixes( array( AI1WM_TABLE_PREFIX ) )
+			   ->setOldReplaceValues( $old_values )
+			   ->setNewReplaceValues( $new_values )
+   			   ->setIncludeTablePrefixes( array( $wpdb->prefix ) )
+			   ->setQueryClauses( $clauses )
+			   ->setTablePrefixColumns( $wpdb->options, array( 'option_name' ) )
+			   ->setTablePrefixColumns( $wpdb->usermeta, array( 'meta_key' ) );
 
 		// Export database
-		$this->connection->export();
+		$client->export( $this->storage()->database() );
 	}
 
 	/*

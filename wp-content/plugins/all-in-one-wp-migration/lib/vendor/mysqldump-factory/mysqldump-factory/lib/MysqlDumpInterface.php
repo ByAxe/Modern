@@ -1,50 +1,29 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
 /**
- * MysqlDump interface
+ * Copyright (C) 2014 ServMask Inc.
  *
- * PHP version 5
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * LICENSE: Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the "Software"), to
- * deal in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
- * of the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- * @category  Databases
- * @package   MysqlDumpFactory
- * @author    Yani Iliev <yani@iliev.me>
- * @author    Bobby Angelov <bobby@servmask.com>
- * @copyright 2014 Yani Iliev, Bobby Angelov
- * @license   https://raw.github.com/yani-/mysqldump-factory/master/LICENSE The MIT License (MIT)
- * @version   GIT: 2.2.0
- * @link      https://github.com/yani-/mysqldump-factory/
+ * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
+ * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
+ * ███████╗█████╗  ██████╔╝██║   ██║██╔████╔██║███████║███████╗█████╔╝
+ * ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██║╚██╔╝██║██╔══██║╚════██║██╔═██╗
+ * ███████║███████╗██║  ██║ ╚████╔╝ ██║ ╚═╝ ██║██║  ██║███████║██║  ██╗
+ * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
-/**
- * MysqlDump interface
- *
- * @category  Databases
- * @package   MysqlDumpFactory
- * @author    Yani Iliev <yani@iliev.me>
- * @author    Bobby Angelov <bobby@servmask.com>
- * @copyright 2014 Yani Iliev, Bobby Angelov
- * @license   https://raw.github.com/yani-/mysqldump-factory/master/LICENSE The MIT License (MIT)
- * @version   GIT: 2.2.0
- * @link      https://github.com/yani-/mysqldump-factory/
- */
 interface MysqlDumpInterface
 {
 	/**
@@ -59,56 +38,34 @@ interface MysqlDumpInterface
 	public function __construct($hostname = 'localhost', $username = '', $password = '', $database = '');
 
 	/**
-	 * Export database into a file
-	 *
-	 * @return void
-	 */
-	public function export();
-
-	/**
-	 * Set output file name
-	 *
-	 * @param  string $fileName Name of the output file
-	 * @return MysqlDumpInterface
-	 */
-	public function setFileName($fileName);
-
-	/**
-	 * Get output file name
-	 *
-	 * @return string
-	 */
-	public function getFileName();
-
-	/**
 	 * Set old table prefix
 	 *
-	 * @param  string $prefix Name of the table prefix
+	 * @param  array $prefixes List of table prefixes
 	 * @return MysqlDumpInterface
 	 */
-	public function setOldTablePrefix($prefix);
+	public function setOldTablePrefixes($prefixes);
 
 	/**
-	 * Get old table prefix
+	 * Get old table prefixes
 	 *
-	 * @return string
+	 * @return array
 	 */
-	public function getOldTablePrefix();
+	public function getOldTablePrefixes();
 
 	/**
-	 * Set new table prefix
+	 * Set new table prefixes
 	 *
-	 * @param  string $prefix Name of the table prefix
+	 * @param  array $prefixes List of table prefixes
 	 * @return MysqlDumpInterface
 	 */
-	public function setNewTablePrefix($prefix);
+	public function setNewTablePrefixes($prefixes);
 
 	/**
-	 * Get new table prefix
+	 * Get new table prefixes
 	 *
-	 * @return string
+	 * @return array
 	 */
-	public function getNewTablePrefix();
+	public function getNewTablePrefixes();
 
 	/**
 	 * Set old replace values
@@ -173,33 +130,49 @@ interface MysqlDumpInterface
 	public function getTablePrefixColumns($table);
 
 	/**
-	 * Get MySQL version
+	 * Set exclude table prefixes
 	 *
-	 * @return string
+	 * @param  array $prefixes List of table prefixes
+	 * @return MysqlDumpInterface
 	 */
-	public function getVersion();
+	public function setExcludeTablePrefixes($prefixes);
 
 	/**
-	 * Get MySQL max allowed packaet
+	 * Get exclude table prefixes
 	 *
-	 * @return integer
+	 * @return array
 	 */
-	public function getMaxAllowedPacket();
+	public function getExcludeTablePrefixes();
 
 	/**
-	 * Get MySQL collation name
+	 * Get tables
 	 *
-	 * @param  string $collationName Collation name
-	 * @return string
+	 * @return array
 	 */
-	public function getCollation($collationName);
+	public function getTables();
 
 	/**
-	 * Flush database
+	 * Get MySQL connection (lazy loading)
 	 *
-	 * @return void
+	 * @return resource
 	 */
-	public function flush();
+	public function getConnection();
+
+	/**
+	 * Run MySQL query
+	 *
+	 * @param  string   $query SQL query
+	 * @return resource
+	 */
+	public function query($query);
+
+	/**
+	 * Export database into a file
+	 *
+	 * @param  string $fileName Name of file
+	 * @return bool
+	 */
+	public function export($fileName);
 
 	/**
 	 * Import database from file
@@ -210,51 +183,9 @@ interface MysqlDumpInterface
 	public function import($fileName);
 
 	/**
-	 * Get list of tables
+	 * Flush database
 	 *
-	 * @return array
+	 * @return void
 	 */
-	public function listTables();
-
-	/**
-	 * Replace table prefix
-	 *
-	 * @param  string $input Table value
-	 * @param  boolean $first Replace first occurrence
-	 * @param  boolean $start Replace start occurrence
-	 * @return string
-	 */
-	public function replaceTablePrefix($input, $first = false, $start = false);
-
-	/**
-	 * Replace table values
-	 *
-	 * @param  string  $input Table value
-	 * @param  boolean $parse Parse value
-	 * @return string
-	 */
-	public function replaceTableValues($input, $parse = false);
-
-	/**
-	 * Replace table collation
-	 *
-	 * @param  string $input SQL statement
-	 * @return string
-	 */
-	public function replaceTableCollation($input);
-
-	/**
-	 * Strip table constraints
-	 *
-	 * @param  string $input SQL statement
-	 * @return string
-	 */
-	public function stripTableConstraints($input);
-
-	/**
-	 * Get MySQL connection (lazy loading)
-	 *
-	 * @return resource
-	 */
-	public function getConnection();
+	public function flush();
 }

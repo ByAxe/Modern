@@ -23,6 +23,7 @@
  * ███████║███████╗██║  ██║ ╚████╔╝ ██║ ╚═╝ ██║██║  ██║███████║██║  ██╗
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
+
 class Ai1wm_Service_Package implements Ai1wm_Service_Interface {
 
 	protected $args    = array();
@@ -98,13 +99,13 @@ class Ai1wm_Service_Package implements Ai1wm_Service_Interface {
 		// Get Site URL
 		$site_url = site_url();
 		if ( isset( $options['siteurl'] ) ) {
-			$site_url = rtrim( $options['siteurl'], '/' );
+			$site_url = untrailingslashit( $options['siteurl'] );
 		}
 
 		// Get Home URL
 		$home_url = home_url();
 		if ( isset( $options['home'] ) ) {
-			$home_url = rtrim( $options['home'], '/' );
+			$home_url = untrailingslashit( $options['home'] );
 		}
 
 		// Default configuration

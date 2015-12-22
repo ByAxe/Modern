@@ -35,8 +35,7 @@ class Ai1wm_Extension_Filter extends FilterIterator {
 	}
 
 	public function accept() {
-		$filename = $this->getInnerIterator()->getFilename();
-		if ( in_array( pathinfo( $filename, PATHINFO_EXTENSION ), $this->include ) ) {
+		if ( in_array( pathinfo( $this->getInnerIterator()->getFilename(), PATHINFO_EXTENSION ), $this->include ) ) {
 			return true;
 		}
 

@@ -56,7 +56,7 @@ class Ai1wm_Export_File extends Ai1wm_Export_Abstract {
 						size_format( filesize( $this->storage()->backup() ) )
 					)
 				),
-				$this->storage()->status() // status.html file
+				$this->storage()->status() // status.js file
 			);
 		}
 	}

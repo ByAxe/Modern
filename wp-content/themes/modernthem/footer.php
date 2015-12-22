@@ -1,30 +1,31 @@
+</div>
 <div id="footer">
 
-<!--    <div id="footer_images">
-        <div>
-            <a href="http://vk.com/modernimport" target="_blank">
-                <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VK.png"
-                     onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VKHover.jpg'"
-                     onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VK.png'"/>
-            </a>
-        </div>
-        <div>
-            <a href="" target="_blank">
-                <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Twitter.png"
-                     onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/TwitterHover.jpg'"
-                     onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Twitter.png'"/>
-            </a>
+    <!--    <div id="footer_images">
+            <div>
+                <a href="http://vk.com/modernimport" target="_blank">
+                    <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VK.png"
+                         onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VKHover.jpg'"
+                         onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VK.png'"/>
+                </a>
+            </div>
+            <div>
+                <a href="" target="_blank">
+                    <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Twitter.png"
+                         onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/TwitterHover.jpg'"
+                         onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Twitter.png'"/>
+                </a>
 
+            </div>
+            <div>
+                <a href="" target="_blank">
+                    <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Insta.png"
+                         onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/InstaHover.jpg'"
+                         onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Insta.png'"/>
+                </a>
+            </div>
         </div>
-        <div>
-            <a href="" target="_blank">
-                <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Insta.png"
-                     onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/InstaHover.jpg'"
-                     onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Insta.png'"/>
-            </a>
-        </div>
-    </div>
--->
+    -->
     <div id="footer_text">
         <p>Modern Import © 2015 ©</p>
     </div>
@@ -54,7 +55,8 @@
         } else {
             f();
         }
-    })(document, window, "yandex_metrika_callbacks");</script>
+    })(document, window, "yandex_metrika_callbacks");
+</script>
 <noscript>
     <div>
         <img src="//mc.yandex.ru/watch/23467273" style="position:absolute; left: -9999px;" alt=""/>

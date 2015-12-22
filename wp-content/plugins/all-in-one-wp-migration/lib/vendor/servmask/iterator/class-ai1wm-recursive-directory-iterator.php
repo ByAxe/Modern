@@ -29,21 +29,27 @@ class Ai1wm_Recursive_Directory_Iterator extends RecursiveDirectoryIterator {
 
 	public function __construct( $path ) {
 		parent::__construct( $path );
+
+		// Skip current and parent directory
 		$this->skipdots();
 	}
 
 	public function rewind() {
 		parent::rewind();
+
+		// Skip current and parent directory
 		$this->skipdots();
 	}
 
 	public function next() {
 		parent::next();
+
+		// Skip current and parent directory
 		$this->skipdots();
 	}
 
 	protected function skipdots() {
-		while ($this->isDot()) {
+		while ( $this->isDot() ) {
 			parent::next();
 		}
 	}

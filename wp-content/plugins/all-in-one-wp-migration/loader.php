@@ -122,6 +122,10 @@ require_once AI1WM_CONTROLLER_PATH .
 
 require_once AI1WM_CONTROLLER_PATH .
 			DIRECTORY_SEPARATOR .
+			'class-ai1wm-resolve-controller.php';
+
+require_once AI1WM_CONTROLLER_PATH .
+			DIRECTORY_SEPARATOR .
 			'class-ai1wm-backup-controller.php';
 
 require_once AI1WM_CONTROLLER_PATH .
@@ -135,6 +139,14 @@ require_once AI1WM_CONTROLLER_PATH .
 require_once AI1WM_CONTROLLER_PATH .
 			DIRECTORY_SEPARATOR .
 			'class-ai1wm-message-controller.php';
+
+require_once AI1WM_MODEL_PATH .
+			DIRECTORY_SEPARATOR .
+			'class-ai1wm-streams.php';
+
+require_once AI1WM_MODEL_PATH .
+			DIRECTORY_SEPARATOR .
+			'class-ai1wm-http.php';
 
 require_once AI1WM_MODEL_PATH .
 			DIRECTORY_SEPARATOR .
@@ -207,6 +219,10 @@ require_once AI1WM_SERVICE_PATH .
 require_once AI1WM_SERVICE_PATH .
 			DIRECTORY_SEPARATOR .
 			'class-ai1wm-service-package.php';
+
+require_once AI1WM_EXCEPTION_PATH .
+			DIRECTORY_SEPARATOR .
+			'class-ai1wm-http-exception.php';
 
 require_once AI1WM_EXCEPTION_PATH .
 			DIRECTORY_SEPARATOR .

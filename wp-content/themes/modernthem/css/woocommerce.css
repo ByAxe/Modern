@@ -204,7 +204,7 @@ p.demo_store a {
 }
 
 .woocommerce div.product {
-    margin-bottom: 0;
+    margin: 0 2% !important;
     position: relative
 }
 
@@ -263,6 +263,7 @@ p.demo_store a {
 
 .woocommerce div.product div.images img {
     margin: 6% 0%;
+    max-width: 75% !important;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -ms-transition: 0.5s all;
@@ -1568,7 +1569,7 @@ p.demo_store a {
 }
 
 .woocommerce-cart table.cart img {
-    width: 32px;
+    width: 75% !important;
     box-shadow: none
 }
 
@@ -1935,6 +1936,7 @@ div[itemprop="offers"] {
     position: relative;
     width: 22.05%;
 }
+/*
 ul.products{
     margin: 4% 0 0 3% !important;
-}
+}*/

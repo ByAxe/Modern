@@ -3,7 +3,7 @@
 Plugin Name: Saphali Woocommerce Russian
 Plugin URI: http://saphali.com/saphali-woocommerce-plugin-wordpress
 Description: Saphali Woocommerce Russian - это бесплатный вордпресс плагин, который добавляет набор дополнений к интернет-магазину на Woocommerce.
-Version: 1.5.6
+Version: 1.5.7
 Author: Saphali
 Author URI: http://saphali.com/
 Text Domain: themewoocommerce
@@ -33,10 +33,11 @@ Domain Path: /languages/
   ------------------------------------------------------------ */
   // Подключение валюты и локализации
  define('SAPHALI_PLUGIN_DIR_URL',plugin_dir_url(__FILE__));
- define('SAPHALI_LITE_VERSION', '1.5.6' );
+ define('SAPHALI_LITE_VERSION', '1.5.7' );
  define('SAPHALI_PLUGIN_DIR_PATH',plugin_dir_path(__FILE__));
  class saphali_lite {
  var $email_order_id;
+ var $column_count_saphali;
 	function __construct() {
 		if ( version_compare( WOOCOMMERCE_VERSION, '2.2.0', '<' ) )
 		add_action('before_woocommerce_init', array($this,'load_plugin_textdomain'), 9);
@@ -82,6 +83,14 @@ Domain Path: /languages/
 		add_filter( 'woocommerce_currencies',  array($this,'add_inr_currency') , 11);
 		add_filter( 'woocommerce_currency_symbol',  array($this,'add_inr_currency_symbol') , 1, 2 ); 
 		add_action( 'woocommerce_checkout_update_order_meta',   array( $this, 'checkout_update_order_meta' ), 10, 2 );
+		$this->column_count_saphali = get_option('column_count_saphali');
+		if(!empty($this->column_count_saphali)) {
+			global $woocommerce_loop;
+			$woocommerce_loop['columns'] = $this->column_count_saphali; 
+			add_action("wp_head", array($this,'print_script_columns'), 10, 1);
+			add_filter("loop_shop_columns", array($this, 'print_columns'), 10, 1);
+			add_filter("woocommerce_output_related_products_args", array($this, 'related_print_columns'), 10, 1);
+		}
 	}
 	public function wp( ) {
 		if(function_exists('wc_edit_address_i18n')){
@@ -1262,6 +1271,29 @@ Domain Path: /languages/
 			echo '</div>';
 		}
 	}
+	function print_columns ($columns) {
+		return $this->column_count_saphali;
+	}
+	function related_print_columns ($columns) {
+		if( isset($columns['columns']) ) {
+			$columns['columns'] = $this->column_count_saphali;
+			$columns['posts_per_page'] = $this->column_count_saphali;
+		}
+		
+		return $columns;
+	}
+	function print_script_columns($woocommerce_loop) {
+		global $woocommerce_loop;
+		if($woocommerce_loop['columns'] > 0 && $woocommerce_loop['columns'] != 4) {
+		?>
+		<style type='text/css'>
+		.woocommerce ul.products li.product {
+			width:<?php if($woocommerce_loop['columns'] <= 3 ) echo floor(100/$woocommerce_loop['columns'] - $woocommerce_loop['columns']); elseif($woocommerce_loop['columns'] > 3 )echo floor(100/$woocommerce_loop['columns'] - 4);?>%;
+		}
+		</style>
+		<?php
+		}
+	}
  }
 
 add_action('plugins_loaded', 'woocommerce_lang_s_l', 0);
@@ -1273,24 +1305,7 @@ if ( ! function_exists( 'woocommerce_lang_s_l' ) ) {
 	}
 }
 //END
-$column_count_saphali = get_option('column_count_saphali');
-if(!empty($column_count_saphali)) {
-	global $woocommerce_loop;
-	$woocommerce_loop['columns'] = $column_count_saphali; 
-	add_action("wp_head", 'print_script_columns', 10, 1);
-	function print_script_columns($woocommerce_loop) {
-		global $woocommerce_loop;
-		if($woocommerce_loop['columns'] > 0) {
-		?>
-		<style type='text/css'>
-		.woocommerce ul.products li.product {
-			width:<?php if($woocommerce_loop['columns'] <= 3 ) echo floor(100/$woocommerce_loop['columns'] - $woocommerce_loop['columns']); elseif($woocommerce_loop['columns'] > 3 )echo floor(100/$woocommerce_loop['columns'] - 4);?>%;
-		}
-		</style>
-		<?php
-		}
-	}
-}
+
 add_action("wp_head", '_print_script_columns', 10, 1);
 function _print_script_columns() {
 		if(apply_filters( 'woocommerce_currency', get_option('woocommerce_currency') ) != 'RUB') return;

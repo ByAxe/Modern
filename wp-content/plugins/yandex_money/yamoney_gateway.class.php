@@ -1,26 +1,5 @@
 <?php
 if(!class_exists('WC_Payment_Gateway')) return;
-  class WC_mpos_Gateway extends WC_yam_Gateway{
-		public function __construct(){
-			parent::__construct();
-		}
-		public function generate_payu_form($order_id){
-		global $woocommerce;
-      $order = new WC_Order($order_id);
-      $txnid = $order_id;
-	   $result ='';
-		$result .= '<form name=ShopForm method="POST" id="submit_'.$this->id.'_payment_form" action="'.get_page_link(get_option('ym_page_mpos')).'">';
-			$result .= '<input type="hidden" name="CustomerNumber" value="'.$txnid.'" size="43">';
-			$result .= '<input type="hidden" name="Sum" value="'.number_format( $order->order_total, 2, '.', '' ).'" size="43">'; 
-			$result .= '<input name="paymentType" value="'.$this->payment_type.'" type="hidden">';
-			$result .= '<input name="cms_name" type="hidden" value="wp-woocommerce">';
-			$result .= '<input type="submit" value="Перейти к инcтрукции по оплате">';
-		$result .='</form>';
-		$woocommerce->cart->empty_cart();
-		return $result;
-    }
-  }
-
   class WC_yam_Gateway extends WC_Payment_Gateway{
 	  protected $long_name;
 	  protected $payment_type;
@@ -165,6 +144,26 @@ if(!class_exists('WC_Payment_Gateway')) return;
             $page_list[$page->ID] = $prefix . $page->post_title;
         }
         return $page_list;
+    }
+}
+class WC_mpos_Gateway extends WC_yam_Gateway{
+		public function __construct(){
+			parent::__construct();
+		}
+		public function generate_payu_form($order_id){
+		global $woocommerce;
+      $order = new WC_Order($order_id);
+      $txnid = $order_id;
+	   $result ='';
+		$result .= '<form name=ShopForm method="POST" id="submit_'.$this->id.'_payment_form" action="'.get_page_link(get_option('ym_page_mpos')).'">';
+			$result .= '<input type="hidden" name="CustomerNumber" value="'.$txnid.'" size="43">';
+			$result .= '<input type="hidden" name="Sum" value="'.number_format( $order->order_total, 2, '.', '' ).'" size="43">'; 
+			$result .= '<input name="paymentType" value="'.$this->payment_type.'" type="hidden">';
+			$result .= '<input name="cms_name" type="hidden" value="wp-woocommerce">';
+			$result .= '<input type="submit" value="Перейти к инcтрукции по оплате">';
+		$result .='</form>';
+		$woocommerce->cart->empty_cart();
+		return $result;
     }
 }
 ?>

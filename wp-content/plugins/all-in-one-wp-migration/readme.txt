@@ -3,7 +3,7 @@ Contributors: yani.iliev, bangelov, pimjitsawang
 Tags: db migration, migration, wordpress migration, db backup, db restore, website backup, website restore, website migration, website deploy, wordpress deploy, db backup, database export, database serialization, database find replace
 Requires at least: 3.3
 Tested up to: 4.3
-Stable tag: 4.9
+Stable tag: 4.16
 License: GPLv2 or later
 
 All-in-One WP Migration is the only tool that you will ever need to migrate a WordPress site.
@@ -60,6 +60,25 @@ All in One WP Plugin is the first plugin to offer true mobile experience on Word
 3. Plugin Menu
 
 == Changelog ==
+= 4.15 =
+* Fix an issue with resovling mechanism on export/import
+
+= 4.14 =
+* Fix an issue with database import
+
+= 4.13 =
+* Add new mechanism for resolving HTTP requests
+
+= 4.12 =
+* Fix an issue with Google Drive extension
+
+= 4.11 =
+* Fix content filters on export
+
+= 4.10 =
+* Add HTTPS URL replacement
+* Fix an issue when PDO is not available
+
 = 4.6 =
 * Fix an issue when the plugin was getting stuck on "Done creating an empty archive"
 * Fix an issue when the plugin was getting stuck during import
