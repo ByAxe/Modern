@@ -1,0 +1,38 @@
+.block-delivery {
+  margin: 2%;
+  font-family: Calibri, Helvetica, Verdana, sans-serif;
+}
+
+.delivery-headline {
+  font-size: 2em;
+  background: #2A7DBD;
+  color: #FFFFFF;
+  padding: 0 0 0 10px;
+}
+
+.delivery-text {
+  padding: 1% 1% 1% 1.5%;
+  text-align: justify;
+  font-size: 1.1em;
+}
+
+.delivery-text ol {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.delivery-text li {
+  margin: 0 0 1% 0;
+}
+
+.offset-bottom {
+  margin-bottom: 2%;
+}
+
+.important-list-bold-text {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  text-decoration: underline;
+}

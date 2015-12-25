@@ -1,35 +1,9 @@
-</div>
-<div id="footer">
-
-    <!--    <div id="footer_images">
-            <div>
-                <a href="http://vk.com/modernimport" target="_blank">
-                    <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VK.png"
-                         onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VKHover.jpg'"
-                         onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/VK.png'"/>
-                </a>
-            </div>
-            <div>
-                <a href="" target="_blank">
-                    <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Twitter.png"
-                         onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/TwitterHover.jpg'"
-                         onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Twitter.png'"/>
-                </a>
-
-            </div>
-            <div>
-                <a href="" target="_blank">
-                    <img src="http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Insta.png"
-                         onmouseover="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/InstaHover.jpg'"
-                         onmouseout="this.src='http://modernimport.by/wp-content/themes/modernthem/images/Social/png/Insta.png'"/>
-                </a>
-            </div>
-        </div>
-    -->
-    <div id="footer_text">
+</main>
+<footer>
+    <div class="quotes">
         <p>Modern Import © 2015 ©</p>
     </div>
-</div>
+</footer>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">(function (d, w, c) {
         (w[c] = w[c] || []).push(function () {

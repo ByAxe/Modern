@@ -1,0 +1,14 @@
+footer {
+  width: 100%;
+  position: absolute;
+  background: $second-color;
+
+  .quotes {
+    width: 300px;
+    margin: 7px auto;
+    p {
+      text-align: center;
+      color: white;
+    }
+  }
+}

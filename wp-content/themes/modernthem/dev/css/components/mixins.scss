@@ -1,0 +1,34 @@
+@mixin shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+  } @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+  } @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+  } @else if $level == 4 {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
+  } @else if $level == 5 {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+  }
+}
+
+@mixin transition($time){
+  transition: $time all;
+}
+
+.woocommerce button.button.alt, .woocommerce a.button.alt, .woocommerce input.button.alt, .woocommerce div.product div.images img, .rubrics a{
+  @include transition(0.25s);
+}
+
+.rubrics div, header, .woocommerce ul.products li.product a img, .header, .rubrics a, .price-block-round:hover, .woocommerce div.product div.images img, .add-inf-block-head, #specialCircumstaces:hover, .price-text:hover, .nav-menu li, .woocommerce button.button.alt, .woocommerce a.button.alt, .woocommerce input.button.alt {
+  @include shadow(1);
+}
+
+footer, #head-nav, .dataListElementLi, .delivery-headline, .type-product-category-text, .price-block-text, .price-block-round, .price-block, .price-information, .drop-menu, .add-inf-block, #header, #specialCircumstaces, .price-text {
+  @include shadow(2);
+}
+
+.wrapper-rubrics, .rubrics a:hover, #map iframe, .product-categories, .woocommerce ul.products li.product a img:hover, .woocommerce div.product div.images img:hover, .woocommerce button.button.alt:hover, .woocommerce a.button.alt:hover, .woocommerce input.button.alt:hover {
+  @include shadow(3);
+}
+

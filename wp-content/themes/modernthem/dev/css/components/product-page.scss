@@ -1,0 +1,161 @@
+#dataList {
+  list-style: none;
+}
+
+#dataList ul li {
+  list-style: none;
+}
+
+.dataListElementLi {
+  border-radius: 1%;
+  background: #FDFEFF;
+  margin: 5% 0 5% 0;
+  @include transition(0.5s);
+}
+
+.bigHint {
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 1% 0 0 5%;
+}
+
+.red {
+  color: rgb(223, 67, 67) !important;
+}
+
+.littleHint {
+  cursor: pointer;
+  font-family: Calibri, Helvetica, Verdana, sans-serif;
+  border-top: 1px dotted rgba(32, 32, 32, 0.59);
+  font-size: 1.1em;
+  color: #333;
+  border-radius: 0 4px 0 0;
+  padding: 0.8% 0 1% 5%;
+}
+
+.Ppu_setmarkcol2 {
+  padding: 10px 5px 10px 50px;
+  background: white;
+  display: flex;
+}
+
+.Ppu_setmarkcol2:before, .Ppu_setmarkcol2:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 15px;
+}
+
+.Ppu_setmarkcol2:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
+
+.Ppu_setmarkcol2 li {
+  list-style: none;
+  float: left;
+  margin-left: 10px;
+  z-index: 101;
+}
+
+.Ppu_setmarkcol2 li div {
+  height: 50px;
+  width: 50px;
+  border-radius: 30%;
+  -moz-box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.78);
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.78);
+  border: 2px solid #FFFFFF;
+}
+
+.Ppu_setmarkcol2 li i {
+  font-family: calibri, helvetica, Verdana, sans-serif;
+  font-size: 0.8em;
+  bottom: 9px;
+  display: block;
+  text-align: center;
+  width: 61px;
+  font-style: normal;
+  color: #474747;
+  margin-top: 7px;
+  height: 25px;
+  margin-left: -2px;
+}
+
+#Ppu_description, #specialCircumstaces {
+  padding: 2%;
+}
+
+#Ppu_description b {
+  font-style: normal;
+  display: block;
+  font-size: 1em;
+  text-align: justify;
+  text-indent: 40px;
+  background: url(../../images/check.png) no-repeat 12px 2px;
+  font-weight: normal;
+  font-family: calibri, helvetica, Verdana, sans-serif;
+}
+
+#Ppu_description ul {
+  color: #6C6B6B;
+  font-size: 1.1em;
+  margin: 0 0 10px 0;
+}
+
+#Ppu_description ul li {
+  list-style-type: initial;
+  font-style: normal;
+  font-size: 1em;
+  text-align: justify;
+  font-family: calibri, helvetica, Verdana, sans-serif;
+}
+
+.priceTable, .sizeTable {
+  padding: 0 0 2% 0;
+  font-size: 1.1em;
+  font-family: Calibri, Helvetica, Verdana, sans-serif;
+}
+
+.priceTable {
+  padding-left: 2% !important;
+}
+
+.sizeTable table {
+  min-width: 100%;
+  text-align: center;
+}
+
+.sizeTable td {
+  border-top: 1px solid rgb(200, 200, 200);
+  border-bottom: 1px solid rgb(200, 200, 200);
+  padding: 0 0 0 5px;
+}
+
+.sizeTableFirstTD {
+  width: 30%;
+}
+
+#specialCircumstaces, .price-text {
+  font-size: 2em;
+  font-family: HeliosExtThin, helvetica, sans-serif;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  background: $second-color;
+  @include transition(1s);
+}
+
+.price-text:hover {
+  background: $main-color;
+}

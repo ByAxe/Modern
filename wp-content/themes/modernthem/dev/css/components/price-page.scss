@@ -1,0 +1,75 @@
+.price-information {
+  display: block;
+  background: $second-color;
+  border-radius: 2px;
+  color: white;
+  text-align: center;
+}
+
+.price-information-top, .price-information-bottom {
+  padding: 10px;
+}
+
+.price-information-top {
+  font-family: HeliosExtThin, helvetica, sans-serif;
+  font-size: 2em;
+  border-bottom: 2px solid #FFFFFF;
+}
+
+.price-information-bottom {
+  font-size: 1.5em;
+}
+
+.price-blocks {
+  display: block;
+}
+
+.price-block {
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+  margin: 3% 0 0 2.4%;
+  padding: 1%;
+  border-radius: 4px;
+}
+
+.price-block-round {
+  color: #333 !important;
+  display: block;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;;
+  background: #61BAFF;
+  height: 295px;
+  @include transition(0.5s);
+}
+
+.price-block-round:hover {
+  color: black !important;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.price-block-round i {
+  padding: 30% 0 0 0;
+  color: white;
+}
+
+.price-block-text {
+  padding: 30px 25px;
+  margin: 20px 0 0 0;
+  height: 120px;
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: 100;
+  border-radius: 2px;
+  background: $main-color;
+  color: #F7F7F7;
+  font-family: Calibri, Helvetica, Verdana, sans-serif;
+}
+
+.fa-7x {
+  font-size: 7em !important;
+}

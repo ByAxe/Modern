@@ -1,0 +1,32 @@
+.block-size {
+  margin: 5px 10px 20px 60px;
+  font-family: calibri, helvetica, Verdana, sans-serif !important;
+
+  table {
+    width: 750px;
+    text-align: center;
+
+    td {
+      border-bottom: 1px solid #ddd;
+
+      &:first-child{
+        text-align: left !important;
+        padding-left: 15px;
+        width: 250px;
+      }
+    }
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 1.25em;
+    border-left: 8px solid #F1D57C;
+    color: #606060;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  .offset-bottom{
+    margin-bottom: 80px;
+  }
+}

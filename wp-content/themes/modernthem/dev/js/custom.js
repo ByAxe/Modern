@@ -1,5 +1,3 @@
-"use strict"
-
 jQuery(document).ready(function () {
 
     var headlenslide = $(".hslide_load_slide").length,
@@ -80,11 +78,11 @@ jQuery(document).ready(function () {
     $(hsmarkers).click(function () {
         if (headscslide === $(this).children('p').attr('name')) {
         } else {
-            var objthis = $(this);
-            headscview = $.inArray(this, hsmarkers);
-            headscslide = $(this).children('p').attr('name');
-            headsloadimg = $("#" + headscslide).children('img').attr("src");
-            headsloadhtml = $("#" + headscslide).children('div').html();
+            var objthis = $(this),
+                headscview = $.inArray(this, hsmarkers),
+                headscslide = $(this).children('p').attr('name'),
+                headsloadimg = $("#" + headscslide).children('img').attr("src"),
+                headsloadhtml = $("#" + headscslide).children('div').html();
             $('#headsm_locked').css('z-index', 6);
             function bcmark() {
                 var deffr_bcmark = $.Deferred();
@@ -214,7 +212,7 @@ jQuery(document).ready(function () {
 
     var currentUrl = window.location.href;
 
-    if (currentUrl.search(/.tovar.?/) !== -1) { // Проверка на нахождение tovar в URL
+    if (currentUrl.search(/.product\/./) !== -1) { // Проверка на нахождение product/* в URL
         currentUrl = currentUrl.split('tovar/');
         if ((currentUrl[1] !== '')) {
             document.getElementById("primary-sidebar").style.display = 'none';
