@@ -3,11 +3,11 @@
 Plugin Name: Saphali Woocommerce Russian
 Plugin URI: http://saphali.com/saphali-woocommerce-plugin-wordpress
 Description: Saphali Woocommerce Russian - это бесплатный вордпресс плагин, который добавляет набор дополнений к интернет-магазину на Woocommerce.
-Version: 1.5.7
+Version: 1.5.8
 Author: Saphali
 Author URI: http://saphali.com/
-Text Domain: themewoocommerce
-Domain Path: /languages/
+Text Domain: saphali-woocommerce-lite
+Domain Path: /languages
 
 */
 
@@ -33,7 +33,7 @@ Domain Path: /languages/
   ------------------------------------------------------------ */
   // Подключение валюты и локализации
  define('SAPHALI_PLUGIN_DIR_URL',plugin_dir_url(__FILE__));
- define('SAPHALI_LITE_VERSION', '1.5.7' );
+ define('SAPHALI_LITE_VERSION', '1.5.8' );
  define('SAPHALI_PLUGIN_DIR_PATH',plugin_dir_path(__FILE__));
  class saphali_lite {
  var $email_order_id;
@@ -160,10 +160,10 @@ Domain Path: /languages/
 	}
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'woocommerce',  false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-		load_plugin_textdomain( 'themewoocommerce',  false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'saphali-woocommerce-lite',  false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 	public function load_plugin_textdomain_th() {
-		load_plugin_textdomain( 'themewoocommerce',  false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'saphali-woocommerce-lite',  false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 	public function woocommerce_default_address_fields($locale) {
 		$fieldss = get_option('woocommerce_saphali_filds_locate');
@@ -226,15 +226,15 @@ Domain Path: /languages/
 		add_submenu_page('woocommerce',  __('Настройки Saphali WC Lite', 'woocommerce'), __('Saphali WC Lite', 'woocommerce') , 'manage_woocommerce', 'woocommerce_saphali_s_l', array($this,'woocommerce_saphali_page_s_l'));
 	}
 	function add_inr_currency( $currencies ) {
-		$currencies['UAH'] = __( 'Ukrainian hryvnia', 'themewoocommerce' );
-		$currencies['RUR'] = __( 'Russian ruble', 'themewoocommerce' );
-		$currencies['RUB'] = __( 'Russian ruble (P)', 'themewoocommerce' );
-		$currencies['BYR'] = __( 'Belarusian ruble', 'themewoocommerce' );
-		$currencies['AMD'] = __( 'Armenian dram  (Դրամ)', 'themewoocommerce' );
-		$currencies['KGS'] = __( 'Киргизский сом', 'themewoocommerce' );
-		$currencies['KZT'] = __( 'Казахстанский тенге ', 'themewoocommerce' );
-		$currencies['UZS'] = __( 'Узбекский сум', 'themewoocommerce' );
-		$currencies['LTL'] = __( 'Lithuanian Litas', 'themewoocommerce' );
+		$currencies['UAH'] = __( 'Ukrainian hryvnia', 'saphali-woocommerce-lite' );
+		$currencies['RUR'] = __( 'Russian ruble', 'saphali-woocommerce-lite' );
+		$currencies['RUB'] = __( 'Russian ruble (P)', 'saphali-woocommerce-lite' );
+		$currencies['BYR'] = __( 'Belarusian ruble', 'saphali-woocommerce-lite' );
+		$currencies['AMD'] = __( 'Armenian dram  (Դրամ)', 'saphali-woocommerce-lite' );
+		$currencies['KGS'] = __( 'Киргизский сом', 'saphali-woocommerce-lite' );
+		$currencies['KZT'] = __( 'Казахстанский тенге ', 'saphali-woocommerce-lite' );
+		$currencies['UZS'] = __( 'Узбекский сум', 'saphali-woocommerce-lite' );
+		$currencies['LTL'] = __( 'Lithuanian Litas', 'saphali-woocommerce-lite' );
 		return $currencies;
 	}
 	function add_inr_currency_symbol( $symbol , $currency ) {
@@ -287,14 +287,14 @@ Domain Path: /languages/
 					if ( version_compare( WOOCOMMERCE_VERSION, '2.0', '<' ) ) { 
 						include_once( WP_PLUGIN_DIR . '/' . $woocommerce->template_url. 'classes/class-wc-checkout.php' ); 
 					} elseif ( !version_compare( WOOCOMMERCE_VERSION, '2.3', '<' ) ) {
-						include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.3/'), '', WC()->template_path() ) . 'includes/class-wc-autoloader.php' ); 
+						include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.3/', 'compatibility/2.4/'), '', WC()->template_path() ) . 'includes/class-wc-autoloader.php' ); 
 						$load = new WC_Autoloader();
-						if(!class_exists('WC_Customer')) $load->autoload( 'WC_Customer' );  $load->autoload( 'WC_Checkout' ); if ( !version_compare( WOOCOMMERCE_VERSION, '2.2', '<' ) ) { include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.3/'), '', WC()->template_path() ) . 'includes/abstracts/abstract-wc-session.php' ); include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.3/'), '', WC()->template_path() ) . 'includes/class-wc-session-handler.php' );  $woocommerce->session =  new WC_Session_Handler();} else {
+						if(!class_exists('WC_Customer')) $load->autoload( 'WC_Customer' );  $load->autoload( 'WC_Checkout' ); if ( !version_compare( WOOCOMMERCE_VERSION, '2.2', '<' ) ) { include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.3/', 'compatibility/2.4/'), '', WC()->template_path() ) . 'includes/abstracts/abstract-wc-session.php' ); include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.3/', 'compatibility/2.4/'), '', WC()->template_path() ) . 'includes/class-wc-session-handler.php' );  $woocommerce->session =  new WC_Session_Handler();} else {
 							 $woocommerce->autoload( 'WC_Session' ); 
 							 $woocommerce->autoload( 'WC_Session_Handler' ); 
 						}  
 					} else { 
-						if(!class_exists('WC_Customer')) $woocommerce->autoload( 'WC_Customer' );  $woocommerce->autoload( 'WC_Checkout' ); if ( !version_compare( WOOCOMMERCE_VERSION, '2.2', '<' ) ) { include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.2/','compatability/2.3/'), '', WC()->template_path() ) . 'includes/abstracts/abstract-wc-session.php' ); include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.2/','compatability/2.3/'), '', WC()->template_path() ) . 'includes/class-wc-session-handler.php' );  $woocommerce->session =  new WC_Session_Handler();} else {
+						if(!class_exists('WC_Customer')) $woocommerce->autoload( 'WC_Customer' );  $woocommerce->autoload( 'WC_Checkout' ); if ( !version_compare( WOOCOMMERCE_VERSION, '2.2', '<' ) ) { include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.2/','compatability/2.3/', 'compatibility/2.4/'), '', WC()->template_path() ) . 'includes/abstracts/abstract-wc-session.php' ); include_once( WP_PLUGIN_DIR . '/' . str_replace( array('compatability/2.2/','compatability/2.3/', 'compatibility/2.4/'), '', WC()->template_path() ) . 'includes/class-wc-session-handler.php' );  $woocommerce->session =  new WC_Session_Handler();} else {
 							 $woocommerce->autoload( 'WC_Session' ); 
 							 if ( !version_compare( WOOCOMMERCE_VERSION, '2.1', '<' ))
 							 $woocommerce->autoload( 'WC_Session_Handler' ); 
@@ -550,7 +550,7 @@ Domain Path: /languages/
 					<tr>
 						<td> <input  disabled value='<?php echo $key?>' type="text" name="billing[<?php echo $key?>][name]" /></td>
 						<td><input value='<?php echo $value['label']?>' type="text" name="billing[<?php echo $key?>][label]" /></td>
-					<td<?php if(isset($value['type']) && $value['type'] == 'select') {echo ' class="option-area"';}  ?>><?php if(!isset($value['type']) || isset($value['type']) && $value['type'] != 'select') { ?><input value='<?php  echo $value['placeholder']?>' type="text" name="billing[<?php  echo $key?>][placeholder]" /><?php } else { 
+					<td<?php if(isset($value['type']) && $value['type'] == 'select') {echo ' class="option-area"';}  ?>><?php if(!isset($value['type']) || isset($value['type']) && $value['type'] != 'select') { ?><input value='<?php if(isset( $value['placeholder'] )) echo $value['placeholder']; ?>' type="text" name="billing[<?php  echo $key?>][placeholder]" /><?php } else { 
 							if( isset($value['options']) && is_array($value['options']) ) {
 								foreach($value['options'] as $key_option => $val_option) {?>
 								<span><input id="options" type="text" name="billing[<?php echo $key?>][options][<?php echo $key_option; ?>]" value="<?php echo $val_option?>" /> <span class="delete-option" style="cursor:pointer;border:1px solid">Удалить</span></span><br />
@@ -636,7 +636,7 @@ Domain Path: /languages/
 					<tr>
 						<td><input  disabled  value=<?php echo $key?> type="text" name="shipping[<?php echo $key?>][name]" /></td>
 						<td><input value='<?php echo $value['label']?>' type="text" name="shipping[<?php echo $key?>][label]" /><input value='<?php echo $value['type']?>' type="hidden" name="shipping[<?php echo $key?>][type]" /></td>
-						<td><input value='<?php echo $value['placeholder']?>' type="text" name="shipping[<?php echo $key?>][placeholder]" /></td>
+						<td><input value='<?php if(isset( $value['placeholder'] )) echo $value['placeholder']; ?>' type="text" name="shipping[<?php echo $key?>][placeholder]" /></td>
 						<td><input <?php if(isset($value['clear']) && $value['clear']) echo 'checked'?> class="<?php echo $value['clear']?>" type="checkbox" name="shipping[<?php echo $key?>][clear]" /></td>
 						<td><?php  if( isset($value['class']) && is_array($value['class']) ) { foreach($value['class'] as $v_class) { ?>
 						
@@ -1004,13 +1004,15 @@ Domain Path: /languages/
 		  $_show_fields['shipping'] =   $shipping;
 		
 
-		if(!(@is_array($show_fields['order']['fields']))) {
+		if(isset($show_fields['order']) && !(@is_array($show_fields['order']['fields']))) {
 			$_show_fields['order']['title'] = 'Дополнительные поля'; 
 		}
 		if(isset($orders))
 		 $_show_fields['order'] =   $orders;
-		
+		if (isset($_show_fields)) {
 		return $_show_fields;
+	}
+		
 	}
 	function woocommerce_save_customer_meta_fields_saphali( $user_id ) {
 		if ( ! current_user_can( 'manage_woocommerce' ) )
@@ -1312,8 +1314,8 @@ function _print_script_columns() {
 		?>
 	<style type="text/css">
 		@font-face { font-family: "Rubl Sign"; src: url(<?php echo SAPHALI_PLUGIN_DIR_URL; ?>ruble.eot); }
-		span.rur { font-family: "Rubl Sign"; text-transform: uppercase; // text-transform: none;}    
-		span.rur span { position: absolute; overflow: hidden; width: .45em; height: 1em; margin: .2ex 0 0 -.55em; // display: none; }
+		span.rur { font-family: "Rubl Sign"; text-transform: uppercase;}    
+		span.rur span { position: absolute; overflow: hidden; width: .45em; height: 1em; margin: .2ex 0 0 -.55em; }
 		span.rur span:before { content: '\2013'; }
 	</style>
 		<?php

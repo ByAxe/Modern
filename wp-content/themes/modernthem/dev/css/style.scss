@@ -12,7 +12,6 @@ $second-color: #3B89C5;
 @import "components/footer";
 @import "components/informational-page";
 
-
 body {
   font-size: 100%;
   width: 100%;
@@ -190,7 +189,7 @@ main {
       background: $second-color;
     }
 
-    &-body{
+    &-body {
       font-size: 1.1em;
       text-align: justify;
       padding: 6px 10px 8px 0;
@@ -227,6 +226,7 @@ main {
   text-align: justify;
   font-size: 1.2em;
 }
+
 /*
     ---------Products' categories-----------------------------------
 */
@@ -246,32 +246,53 @@ main {
 }
 
 .product-categories {
-  font-size: 1.2em;
   font-weight: bold;
-  border-left: 10px solid rgb(3, 169, 244);
-}
+  margin: 0;
+  padding: 0;
 
-.product-categories > li {
-  padding: 2% 0 2% 0;
-  border-bottom: 3px solid rgb(89, 136, 221);
-}
+  & > li {
+    padding: 5% 10%;
+    list-style: none;
+    border-bottom: 1px solid #E1E1E1;
 
-.product-categories > li:last-child {
-  border-bottom: none;
+    &:hover{
+      transform: translateY(-3px);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a{
+      font-size: 1.2em;
+
+      &:hover{
+        color: black;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .children a {
-  color: #596191 !important;
+  color: #333 !important;
   font-size: inherit;
 }
 
-.children > .cat-parent li > a {
-  color: #9F7962 !important;
-  font-size: 1em;
+.children > .cat-parent ul{
+  list-style: none;
+
+  li > a {
+    padding-bottom: 100px !important;
+    color: #333 !important;
+    font-size: 1em;
+  }
 }
 
+
 .cat-parent > a {
-  color: $main-color;
+  margin-bottom: 10px;
+  color: #333;
   font-size: 1.2em;
   font-family: HeliosExtThin, helvetica, sans-serif;
   /*font-weight: bold;*/
@@ -279,5 +300,6 @@ main {
 
 #primary-sidebar {
   display: inline-block;
-  width: 30%;
+  margin: 2% 0 0 5%;
+  width: 25%;
 }

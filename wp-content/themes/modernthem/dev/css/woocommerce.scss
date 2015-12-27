@@ -155,15 +155,16 @@ p.demo_store a {
 
 .woocommerce .woocommerce-message:before {
   content: "\e015";
-  color: #8fae1b
+  color: #8fae1b;
 }
 
 .woocommerce .woocommerce-info {
-  border-top-color: #1e85be
+  border-top-color: #1e85be;
+  display: none !important;
 }
 
 .woocommerce .woocommerce-info:before {
-  color: #1e85be
+  color: #1e85be;
 }
 
 .woocommerce .woocommerce-error {
@@ -1921,4 +1922,8 @@ div[itemprop="offers"] {
 
 .priceTable td {
   padding: 0 5px 0 0;
+}
+
+.rounded {
+  display: none !important;
 }

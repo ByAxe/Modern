@@ -31,7 +31,7 @@
 </head>
 <body <?php body_class(); ?>>
 
-<?php include 'header/header-navigation.php'?>
+<?php include 'php-components/header/header-navigation.php'?>
 
 <main>
-    <?php include 'header/header-information.php'?>
+    <?php include 'php-components/header/header-information.php'?>

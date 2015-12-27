@@ -16,7 +16,7 @@
   transition: $time all;
 }
 
-.woocommerce button.button.alt, .woocommerce a.button.alt, .woocommerce input.button.alt, .woocommerce div.product div.images img, .rubrics a{
+.woocommerce button.button.alt, .woocommerce a.button.alt, .woocommerce input.button.alt, .woocommerce div.product div.images img, .rubrics a, .product-categories>li{
   @include transition(0.25s);
 }
 
@@ -24,7 +24,7 @@
   @include shadow(1);
 }
 
-footer, #head-nav, .dataListElementLi, .delivery-headline, .type-product-category-text, .price-block-text, .price-block-round, .price-block, .price-information, .drop-menu, .add-inf-block, #header, #specialCircumstaces, .price-text {
+footer, #head-nav, .product-categories>li:hover, .dataListElementLi, .delivery-headline, .type-product-category-text, .price-block-text, .price-block-round, .price-block, .price-information, .drop-menu, .add-inf-block, #header, #specialCircumstaces, .price-text {
   @include shadow(2);
 }
 

@@ -43,9 +43,6 @@
 # track .editorconfig file (i.e. do NOT ignore it)
 !.editorconfig
 
-# track readme.md in the root (i.e. do NOT ignore it)
-!readme.md
-
 # ignore all files that start with ~
 ~*
 
